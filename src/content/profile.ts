@@ -26,8 +26,8 @@ export const profile = {
   },
   // Para el CV: texto un poco más largo.
   about: [
-    "Soy desarrollador full stack y estudio Analista Programador Universitario en la Facultad de Informática de la UNLP. Desde 2021 trabajo de forma remota en productos web, primero en frontend con React y después en todo el stack.",
-    "Hoy trabajo en el área de debugging de Vozy: investigo y resuelvo errores de los productos de la empresa con Go, AWS, GCP y Kubernetes, y consultas en MongoDB y Elasticsearch. En mis ratos libres armo proyectos personales; el más especial es “Con amor, mamá”, el recetario digital con las recetas de mi mamá.",
+    "Soy desarrollador full stack y estudio Analista Programador Universitario en la Facultad de Informática de la UNLP. Desde 2021 trabajo de forma remota en productos web: en mis primeras tres experiencias laborales me dediqué al frontend con React.",
+    "Desde que entré a Vozy hago desarrollos de punta a punta a la par que atiendo soporte: investigo y resuelvo errores de los productos de la empresa con Go, AWS, GCP y Kubernetes, y consultas en MongoDB y Elasticsearch. En mis ratos libres armo proyectos personales; el más especial es “Con amor, mamá”, el recetario digital con las recetas de mi mamá.",
   ],
 };
 
