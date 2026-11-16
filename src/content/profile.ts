@@ -27,7 +27,7 @@ export const profile = {
   // Para el CV: texto un poco más largo.
   about: [
     "Soy desarrollador full stack y estudio Analista Programador Universitario en la Facultad de Informática de la UNLP. Desde 2021 trabajo de forma remota en productos web, primero en frontend con React y después en todo el stack.",
-    "Hoy trabajo en el área de debugging de Vozy: investigo y resuelvo errores de los productos de la empresa con Go, AWS, GCP y Kubernetes, y consultas en MongoDB y Elasticsearch. En mis ratos libres armo proyectos personales; el más especial es “Con amor, Cristina”, el recetario digital con las recetas de mi mamá.",
+    "Hoy trabajo en el área de debugging de Vozy: investigo y resuelvo errores de los productos de la empresa con Go, AWS, GCP y Kubernetes, y consultas en MongoDB y Elasticsearch. En mis ratos libres armo proyectos personales; el más especial es “Con amor, mamá”, el recetario digital con las recetas de mi mamá.",
   ],
 };
 
@@ -51,7 +51,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "con-amor-cristina",
-    title: "Con amor, Cristina",
+    title: "Con amor, mamá",
     tagline: "El recetario digital de mi mamá",
     description:
       "Una app para guardar y compartir las recetas de mi mamá. Cualquiera puede buscarlas y la familia puede cargar nuevas con su cuenta: con fotos, ingredientes para ir tachando, favoritas, modo oscuro y varias paletas de colores. Empezó en 2022 con React y Chakra UI, y en 2026 la rehice completa con Next.js.",

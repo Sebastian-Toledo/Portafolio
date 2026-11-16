@@ -86,7 +86,7 @@ export function About() {
             “Mi proyecto favorito es el recetario de mi mamá: un poco de código y mucho cariño.”
           </p>
           <a href="#con-amor-cristina" className="inline-flex items-center gap-2 font-semibold text-coral hover:underline">
-            Conocé “Con amor, Cristina” <ArrowUpRight className="size-4" />
+            Conocé “Con amor, mamá” <ArrowUpRight className="size-4" />
           </a>
         </div>
       </div>
