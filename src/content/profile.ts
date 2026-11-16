@@ -27,7 +27,7 @@ export const profile = {
   // Para el CV: texto un poco más largo.
   about: [
     "Soy desarrollador full stack y estudio Analista Programador Universitario en la Facultad de Informática de la UNLP. Desde 2021 trabajo de forma remota en productos web: en mis primeras tres experiencias laborales me dediqué al frontend con React.",
-    "Desde que entré a Vozy hago desarrollos de punta a punta a la par que atiendo soporte: investigo y resuelvo errores de los productos de la empresa con Go, AWS, GCP y Kubernetes, y consultas en MongoDB y Elasticsearch. En mis ratos libres armo proyectos personales; el más especial es “Con amor, mamá”, el recetario digital con las recetas de mi mamá.",
+    "Desde que entré a Vozy hago desarrollos de punta a punta a la par que atiendo soporte: investigo y resuelvo errores de los productos de la empresa con Go, AWS, GCP y Kubernetes, y consultas en MongoDB y Elasticsearch. Actualmente mi rol cambió a AI Engineer: me dedico a crear automatizaciones con IA y a usar la IA para mejorar la plataforma. En mis ratos libres armo proyectos personales; el más especial es “Con amor, mamá”, el recetario digital con las recetas de mi mamá.",
   ],
 };
 
@@ -95,12 +95,13 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
-    role: "Junior Software Engineer · Full Stack",
+    role: "AI Engineer (antes Software Engineer · Full Stack)",
     company: "Vozy",
     period: "Sep 2023 — Hoy",
     description:
-      "Trabajo en el área de debugging: analizo y resuelvo los errores que surgen en los productos de la empresa. Remoto.",
+      "Hoy, como AI Engineer, creo automatizaciones con IA y uso la IA para mejorar la plataforma. Antes trabajé en el área de debugging, analizando y resolviendo los errores de los productos de la empresa. Remoto.",
     highlights: [
+      "Automatizaciones con IA y mejoras de la plataforma impulsadas por IA",
       "Backend en Go y frontend en React",
       "Monitoreo de servicios y lambdas con AWS, GCP y kubectl",
       "Consultas en MongoDB y en Elasticsearch a través de Kibana",
