@@ -45,7 +45,7 @@ export default function Hero() {
 
       {/* Avatar */}
       <div className="tile rise flex items-center gap-5 p-6 [animation-delay:80ms] md:col-span-2 md:flex-col md:items-start md:justify-between">
-        <div className="relative grid size-20 shrink-0 place-items-center rounded-2xl bg-[conic-gradient(from_200deg,var(--color-lime),var(--color-violet),var(--color-coral),var(--color-lime))] font-display text-3xl font-extrabold text-ink md:size-28 md:text-4xl">
+        <div className="relative grid size-20 shrink-0 place-items-center rounded-2xl bg-[conic-gradient(from_200deg,var(--color-lime),var(--color-violet),var(--color-coral),var(--color-lime))] font-display text-3xl font-extrabold text-ink md:size-28 md:text-4xl light:bg-[conic-gradient(from_200deg,color-mix(in_srgb,var(--color-lime)_28%,white),color-mix(in_srgb,var(--color-violet)_28%,white),color-mix(in_srgb,var(--color-coral)_28%,white),color-mix(in_srgb,var(--color-lime)_28%,white))] light:text-text light:ring-1 light:ring-line">
           {profile.initials}
         </div>
         <div>
