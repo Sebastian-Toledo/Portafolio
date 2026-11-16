@@ -21,8 +21,7 @@ export const profile = {
   availabilityText: "Abierto a charlar sobre proyectos",
   links: {
     github: "https://github.com/Sebastian-Toledo",
-    // Completá con la dirección completa de tu perfil (ej. "https://www.linkedin.com/in/tu-usuario").
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/sebastian-toledo-39b272166/",
     email: "seba95matias@gmail.com",
   },
   // Para el CV: texto un poco más largo.
