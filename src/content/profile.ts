@@ -27,7 +27,7 @@ export const profile = {
   // Para el CV: texto un poco más largo.
   about: [
     "Soy desarrollador full stack y estudio Analista Programador Universitario en la Facultad de Informática de la UNLP. Desde 2021 trabajo de forma remota en productos web: en mis primeras tres experiencias laborales me dediqué al frontend con React.",
-    "Desde que entré a Vozy hago desarrollos de punta a punta a la par que atiendo soporte: investigo y resuelvo errores de los productos de la empresa con Go, AWS, GCP y Kubernetes, y consultas en MongoDB y Elasticsearch. Actualmente mi rol cambió a AI Engineer: me dedico a crear automatizaciones con IA y a usar la IA para mejorar la plataforma. En mis ratos libres armo proyectos personales; el más especial es “Con amor, mamá”, el recetario digital con las recetas de mi mamá.",
+    "Desde que entré a Vozy hago desarrollos de punta a punta a la par que atiendo soporte: investigo y resuelvo errores de los productos de la empresa con Go, AWS, GCP y Kubernetes, consultas en MongoDB y Elasticsearch, y conocimientos de telefonía y redes. Actualmente mi rol cambió a AI Engineer: me dedico a crear automatizaciones con IA y a usar la IA para mejorar la plataforma. En mis ratos libres armo proyectos personales; el más especial es “Con amor, mamá”, el recetario digital con las recetas de mi mamá.",
   ],
 };
 
@@ -103,6 +103,7 @@ export const experience: Experience[] = [
     highlights: [
       "Automatizaciones con IA y mejoras de la plataforma impulsadas por IA",
       "Backend en Go y frontend en React",
+      "Conocimientos de telefonía y redes aplicados al día a día",
       "Monitoreo de servicios y lambdas con AWS, GCP y kubectl",
       "Consultas en MongoDB y en Elasticsearch a través de Kibana",
       "Uso diario de MySQL, Redis y GitLab",
@@ -150,6 +151,6 @@ export const skills: { group: string; items: string[] }[] = [
   { group: "Lenguajes", items: ["JavaScript", "TypeScript", "Go"] },
   { group: "Frontend", items: ["React", "Next.js", "Tailwind CSS", "Chakra UI", "Semantic UI"] },
   { group: "Backend y datos", items: ["Node.js", "Express", "MongoDB", "MySQL", "Redis", "Elasticsearch / Kibana", "SQLite / Turso"] },
-  { group: "Cloud y herramientas", items: ["AWS", "GCP", "Kubernetes (kubectl)", "Docker", "Git, GitHub y GitLab", "Linux", "Vercel", "Metodologías ágiles"] },
+  { group: "Cloud y herramientas", items: ["AWS", "GCP", "Kubernetes (kubectl)", "Docker", "Git, GitHub y GitLab", "Linux", "Telefonía y redes", "Vercel", "Metodologías ágiles"] },
   { group: "Idiomas", items: ["Español (nativo)", "Inglés"] },
 ];
