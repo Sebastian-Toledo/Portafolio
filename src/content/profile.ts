@@ -57,7 +57,7 @@ export const projects: Project[] = [
       "Una app para guardar y compartir las recetas de mi mamá. Cualquiera puede buscarlas y la familia puede cargar nuevas con su cuenta: con fotos, ingredientes para ir tachando, favoritas, modo oscuro y varias paletas de colores. Empezó en 2022 con React y Chakra UI, y en 2026 la rehice completa con Next.js.",
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Better Auth", "Drizzle ORM", "SQLite / Turso"],
     image: "/projects/con-amor-cristina.png",
-    url: "https://con-amor-cristina.vercel.app",
+    url: "https://con-amor-mama.vercel.app",
     repo: "https://github.com/Sebastian-Toledo/family-recipe",
     year: "2022 — Hoy",
     featured: true,
