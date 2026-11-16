@@ -1,33 +1,34 @@
 /**
  * ✏️ TODO EL CONTENIDO DEL PORTAFOLIO ESTÁ ACÁ.
  * Editá este archivo y la página (y el CV) se actualizan solos.
- * Lo marcado con "EJEMPLO" es texto de muestra: reemplazalo por el tuyo o borralo.
  */
 
 export const profile = {
   name: "Sebastian Toledo",
   initials: "ST",
-  // EJEMPLO: tu rol, como querés que te presenten.
-  role: "Desarrollador web",
+  role: "Desarrollador Full Stack",
   // Frases que van rotando en la portada ("Hola, soy Sebastian y …").
-  rotating: ["construyo apps web", "convierto ideas en productos", "aprendo algo nuevo cada semana", "cocino con código"],
-  // EJEMPLO: 2–3 líneas sobre vos.
+  rotating: [
+    "construyo apps de punta a punta",
+    "resuelvo errores en producción",
+    "trabajo con Go, React y Node.js",
+    "cocino con código",
+  ],
   summary:
-    "Me gusta construir cosas útiles para personas reales. Disfruto de todo el camino: entender el problema, diseñar una solución simple y dejarla funcionando en producción.",
-  // EJEMPLO: tu ciudad o "Remoto".
-  location: "Tu ciudad · Remoto",
+    "Desarrollador full stack de La Plata. Me especializo en encontrar y resolver errores en sistemas en producción, y disfruto construir productos completos: del frontend a la base de datos.",
+  location: "La Plata, Argentina · Remoto",
   available: true,
-  availabilityText: "Abierto a nuevos proyectos",
+  availabilityText: "Abierto a charlar sobre proyectos",
   links: {
     github: "https://github.com/Sebastian-Toledo",
-    // EJEMPLO: completá o dejá vacío ("") para ocultarlo.
+    // Completá con la dirección completa de tu perfil (ej. "https://www.linkedin.com/in/tu-usuario").
     linkedin: "",
-    email: "",
+    email: "seba95matias@gmail.com",
   },
   // Para el CV: texto un poco más largo.
   about: [
-    "EJEMPLO — Contá acá quién sos: qué te llevó a la programación, qué tipo de problemas te gusta resolver y qué estás buscando.",
-    "En mis ratos libres armo proyectos personales para seguir aprendiendo. El más especial es “Con amor, Cristina”, el recetario digital con las recetas de mi mamá.",
+    "Soy desarrollador full stack y estudio Analista Programador Universitario en la Facultad de Informática de la UNLP. Desde 2021 trabajo de forma remota en productos web, primero en frontend con React y después en todo el stack.",
+    "Hoy trabajo en el área de debugging de Vozy: investigo y resuelvo errores de los productos de la empresa con Go, AWS, GCP y Kubernetes, y consultas en MongoDB y Elasticsearch. En mis ratos libres armo proyectos personales; el más especial es “Con amor, Cristina”, el recetario digital con las recetas de mi mamá.",
   ],
 };
 
@@ -54,35 +55,35 @@ export const projects: Project[] = [
     title: "Con amor, Cristina",
     tagline: "El recetario digital de mi mamá",
     description:
-      "Una app para guardar y compartir las recetas de mi mamá. Cualquiera puede buscarlas y la familia puede cargar nuevas con su cuenta: con fotos, ingredientes para ir tachando, favoritas, modo oscuro y varias paletas de colores.",
+      "Una app para guardar y compartir las recetas de mi mamá. Cualquiera puede buscarlas y la familia puede cargar nuevas con su cuenta: con fotos, ingredientes para ir tachando, favoritas, modo oscuro y varias paletas de colores. Empezó en 2022 con React y Chakra UI, y en 2026 la rehice completa con Next.js.",
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Better Auth", "Drizzle ORM", "SQLite / Turso"],
     image: "/projects/con-amor-cristina.png",
     // TODO: cuando la publiques en Vercel, poné acá la dirección (ej. "https://con-amor-cristina.vercel.app").
     url: "",
     repo: "https://github.com/Sebastian-Toledo/family-recipe",
-    year: "2026",
+    year: "2022 — Hoy",
     featured: true,
     accent: "coral",
   },
   {
-    slug: "proyecto-2",
-    title: "Proyecto de ejemplo",
-    tagline: "Una línea que explique qué hace",
-    description: "EJEMPLO — Describí el problema que resuelve, qué hiciste vos y qué aprendiste. Si no tenés otro proyecto todavía, borrá esta tarjeta.",
-    tags: ["React", "Node.js"],
-    year: "2025",
+    slug: "juegos-nodejs",
+    title: "Juegos multijugador con Node.js",
+    tagline: "Seminario de la Facultad de Informática (UNLP)",
+    description:
+      "Proyecto final del seminario: dos juegos en tiempo real donde varios usuarios juegan a la vez, comunicados con Socket.IO. En los trabajos previos usé Docker para levantar los entornos.",
+    tags: ["Node.js", "Socket.IO", "Docker", "JavaScript"],
+    year: "2021",
     accent: "violet",
-    example: true,
   },
   {
-    slug: "proyecto-3",
-    title: "Otro proyecto de ejemplo",
-    tagline: "Automatización, API, script…",
-    description: "EJEMPLO — También sirven trabajos de cursos, scripts que te ahorran tiempo o aportes a proyectos de otros.",
-    tags: ["Python", "APIs"],
-    year: "2024",
+    slug: "casa-estella",
+    title: "Gestión de pedidos para una imprenta",
+    tagline: "Proyecto freelance para Casa Estella",
+    description:
+      "App web para administrar los pedidos de una imprenta, de punta a punta: frontend en React con TypeScript y Chakra UI, API en Node.js con Express y base de datos en MongoDB.",
+    tags: ["React", "TypeScript", "Chakra UI", "Node.js", "Express", "MongoDB"],
+    year: "2023",
     accent: "lime",
-    example: true,
   },
 ];
 
@@ -94,21 +95,44 @@ export interface Experience {
   highlights: string[];
 }
 
-// EJEMPLO: tus trabajos, del más nuevo al más viejo.
 export const experience: Experience[] = [
   {
-    role: "Tu puesto actual",
-    company: "Empresa",
-    period: "2024 — Hoy",
-    description: "EJEMPLO — Una línea sobre qué hace el equipo y cuál es tu rol.",
-    highlights: ["Un logro concreto, mejor si tiene un número", "Una tecnología o proceso que llevaste adelante"],
+    role: "Junior Software Engineer · Full Stack",
+    company: "Vozy",
+    period: "Sep 2023 — Hoy",
+    description:
+      "Trabajo en el área de debugging: analizo y resuelvo los errores que surgen en los productos de la empresa. Remoto.",
+    highlights: [
+      "Backend en Go y frontend en React",
+      "Monitoreo de servicios y lambdas con AWS, GCP y kubectl",
+      "Consultas en MongoDB y en Elasticsearch a través de Kibana",
+      "Uso diario de MySQL, Redis y GitLab",
+    ],
   },
   {
-    role: "Puesto anterior",
-    company: "Empresa anterior",
-    period: "2022 — 2024",
-    description: "EJEMPLO — Qué hacías y qué aprendiste.",
-    highlights: ["Un logro o responsabilidad importante"],
+    role: "Desarrollador Full Stack (freelance)",
+    company: "Casa Estella",
+    period: "Ene 2023 — Jun 2023",
+    description: "Desarrollé una app para gestionar los pedidos de una imprenta. Remoto.",
+    highlights: [
+      "Frontend con React, TypeScript y Chakra UI",
+      "Backend con Node.js, TypeScript y Express",
+      "Base de datos en MongoDB",
+    ],
+  },
+  {
+    role: "Frontend Developer / Full Stack",
+    company: "Minutentag",
+    period: "May 2022 — Sep 2022",
+    description: "Empresa de desarrollo de software. Remoto.",
+    highlights: ["Módulo de pre-ingreso con React y Semantic UI", "Proyectos con WordPress"],
+  },
+  {
+    role: "Frontend Developer",
+    company: "Campeak",
+    period: "Jul 2021 — Dic 2021",
+    description: "Software de gestión para campings. Remoto.",
+    highlights: ["Módulo de pre-ingreso con React y Semantic UI"],
   },
 ];
 
@@ -118,16 +142,15 @@ export interface Education {
   period: string;
 }
 
-// EJEMPLO
 export const education: Education[] = [
-  { title: "Carrera o curso", place: "Institución", period: "2020 — 2023" },
-  { title: "Curso o certificación", place: "Plataforma", period: "2022" },
+  { title: "Analista Programador Universitario", place: "Facultad de Informática, UNLP · último año en curso", period: "2015 — Hoy" },
+  { title: "Desarrollo web full stack", place: "Argentina Programa · React, Node.js, JSP, Servlets y Sockets", period: "Nov 2021 — Feb 2022" },
 ];
 
 export const skills: { group: string; items: string[] }[] = [
-  { group: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML y CSS"] },
-  { group: "Backend y datos", items: ["Node.js", "SQL", "SQLite / Turso", "Drizzle ORM", "APIs REST"] },
-  { group: "Herramientas", items: ["Git y GitHub", "Vercel", "IA para programar (Claude Code)"] },
-  // EJEMPLO: idiomas u otras habilidades.
-  { group: "Idiomas", items: ["Español (nativo)", "Inglés (completá tu nivel)"] },
+  { group: "Lenguajes", items: ["JavaScript", "TypeScript", "Go"] },
+  { group: "Frontend", items: ["React", "Next.js", "Tailwind CSS", "Chakra UI", "Semantic UI"] },
+  { group: "Backend y datos", items: ["Node.js", "Express", "MongoDB", "MySQL", "Redis", "Elasticsearch / Kibana", "SQLite / Turso"] },
+  { group: "Cloud y herramientas", items: ["AWS", "GCP", "Kubernetes (kubectl)", "Docker", "Git, GitHub y GitLab", "Linux", "Vercel", "Metodologías ágiles"] },
+  { group: "Idiomas", items: ["Español (nativo)", "Inglés"] },
 ];
