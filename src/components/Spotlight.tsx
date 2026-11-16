@@ -34,9 +34,9 @@ export default function Spotlight() {
       <div className="absolute top-1/3 -right-40 size-[32rem] animate-float rounded-full bg-coral/15 blur-[120px] [animation-delay:-6s]" />
       <div className="absolute -bottom-40 left-1/3 size-[30rem] animate-float rounded-full bg-lime/10 blur-[120px] [animation-delay:-12s]" />
       {/* Reflector que sigue al mouse */}
-      <div className="absolute inset-0 bg-[radial-gradient(600px_circle_at_var(--gx,50%)_var(--gy,20%),rgb(212_255_58/0.06),transparent_40%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(600px_circle_at_var(--gx,50%)_var(--gy,20%),color-mix(in_srgb,var(--color-lime)_6%,transparent),transparent_40%)]" />
       {/* Grilla sutil */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgb(255_255_255/0.025)_1px,transparent_1px),linear-gradient(90deg,rgb(255_255_255/0.025)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(color-mix(in_srgb,var(--color-text)_3%,transparent)_1px,transparent_1px),linear-gradient(90deg,color-mix(in_srgb,var(--color-text)_3%,transparent)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]" />
     </div>
   );
 }

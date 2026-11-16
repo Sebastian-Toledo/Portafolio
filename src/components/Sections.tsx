@@ -81,7 +81,7 @@ export function About() {
             <p key={p}>{p}</p>
           ))}
         </div>
-        <div className="tile flex flex-col justify-between gap-6 bg-[linear-gradient(135deg,rgb(155_123_255/0.18),rgb(255_107_74/0.12))] p-7">
+        <div className="tile flex flex-col justify-between gap-6 bg-[linear-gradient(135deg,color-mix(in_srgb,var(--color-violet)_18%,transparent),color-mix(in_srgb,var(--color-coral)_12%,transparent))] p-7">
           <p className="font-serif text-3xl leading-tight italic">
             “Mi proyecto favorito es el recetario de mi mamá: un poco de código y mucho cariño.”
           </p>
@@ -113,15 +113,15 @@ export function Contact() {
               <Mail className="size-4" /> {email}
             </a>
           )}
-          <a href={github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-line bg-ink/60 px-6 py-3 font-semibold hover:bg-white/5">
+          <a href={github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-line bg-ink/60 px-6 py-3 font-semibold hover:bg-text/5">
             <GithubIcon className="size-4" /> GitHub
           </a>
           {linkedin && (
-            <a href={linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-line bg-ink/60 px-6 py-3 font-semibold hover:bg-white/5">
+            <a href={linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-line bg-ink/60 px-6 py-3 font-semibold hover:bg-text/5">
               LinkedIn <ArrowUpRight className="size-4" />
             </a>
           )}
-          <Link href="/cv" className="inline-flex items-center gap-2 rounded-full border border-line bg-ink/60 px-6 py-3 font-semibold hover:bg-white/5">
+          <Link href="/cv" className="inline-flex items-center gap-2 rounded-full border border-line bg-ink/60 px-6 py-3 font-semibold hover:bg-text/5">
             <FileText className="size-4" /> Descargar CV
           </Link>
         </div>

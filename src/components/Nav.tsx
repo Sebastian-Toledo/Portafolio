@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { profile } from "@/content/profile";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const LINKS = [
   { href: "/#proyectos", label: "Proyectos" },
@@ -18,12 +19,14 @@ export default function Nav({ mode }: { mode: "portfolio" | "cv" }) {
 
       <nav className="hidden items-center gap-1 text-sm md:flex" aria-label="Secciones">
         {LINKS.map((l) => (
-          <a key={l.href} href={l.href} className="rounded-full px-3 py-1.5 text-muted transition-colors hover:bg-white/5 hover:text-text">
+          <a key={l.href} href={l.href} className="rounded-full px-3 py-1.5 text-muted transition-colors hover:bg-text/5 hover:text-text">
             {l.label}
           </a>
         ))}
       </nav>
 
+      <div className="flex items-center gap-2">
+      <ThemeToggle />
       <div className="relative grid grid-cols-2 rounded-full border border-line bg-panel p-1 text-sm font-semibold" role="group" aria-label="Modo de vista">
         <span
           aria-hidden
@@ -37,6 +40,7 @@ export default function Nav({ mode }: { mode: "portfolio" | "cv" }) {
         <Link href="/cv" aria-current={mode === "cv" ? "page" : undefined} className={`relative z-10 rounded-full px-4 py-1.5 text-center transition-colors ${mode === "cv" ? "text-ink" : "text-muted hover:text-text"}`}>
           CV
         </Link>
+      </div>
       </div>
     </header>
   );

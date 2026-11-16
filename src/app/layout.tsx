@@ -13,9 +13,15 @@ export const metadata: Metadata = {
   description: profile.summary,
 };
 
+// Se ejecuta antes de pintar: tema guardado o, si no hay, el del sistema/navegador.
+const themeScript = `(function(){try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.dataset.theme=t}catch(e){}})()`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${bricolage.variable} ${geist.variable} ${geistMono.variable} ${instrument.variable}`}>
+    <html lang="es" className={`${bricolage.variable} ${geist.variable} ${geistMono.variable} ${instrument.variable}`} data-theme="dark" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="font-sans">{children}</body>
     </html>
   );

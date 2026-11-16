@@ -37,7 +37,7 @@ export default function Hero() {
           <a href="#proyectos" className="group inline-flex items-center gap-2 rounded-full bg-lime px-5 py-3 font-semibold text-ink transition-transform hover:-translate-y-0.5">
             Ver proyectos <ArrowDownRight className="size-4 transition-transform group-hover:rotate-[-45deg]" />
           </a>
-          <Link href="/cv" className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-3 font-semibold transition-colors hover:bg-white/5">
+          <Link href="/cv" className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-3 font-semibold transition-colors hover:bg-text/5">
             <FileText className="size-4" /> Ver CV
           </Link>
         </div>

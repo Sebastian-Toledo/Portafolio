@@ -24,7 +24,7 @@ function Links({ project }: { project: Project }) {
         )
       )}
       {project.repo && (
-        <a href={project.repo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm font-semibold hover:bg-white/5">
+        <a href={project.repo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm font-semibold hover:bg-text/5">
           <GithubIcon className="size-4" /> Código
         </a>
       )}
@@ -36,7 +36,7 @@ function Tags({ tags }: { tags: string[] }) {
   return (
     <ul className="flex flex-wrap gap-2" aria-label="Tecnologías">
       {tags.map((t) => (
-        <li key={t} className="rounded-md bg-white/5 px-2 py-1 font-mono text-xs text-muted">
+        <li key={t} className="rounded-md bg-text/5 px-2 py-1 font-mono text-xs text-muted">
           {t}
         </li>
       ))}
