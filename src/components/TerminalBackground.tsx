@@ -1,117 +1,188 @@
 /**
- * Fondo de "terminal": columnas de comandos y salidas que suben despacio,
- * muy tenues, detrás de todo el contenido. Puramente decorativo.
+ * Fondo de código: columnas de código fuente que suben despacio, muy tenues,
+ * cubriendo todo el ancho de la pantalla detrás del contenido. Puramente decorativo.
  */
 
-const SESSIONS: string[][] = [
+const SNIPPETS: string[][] = [
   [
-    "PS C:\\Users\\seba> ping 1.1.1.1",
-    "Pinging 1.1.1.1 with 32 bytes of data:",
-    "Reply from 1.1.1.1: bytes=32 time=13ms TTL=58",
-    "Reply from 1.1.1.1: bytes=32 time=10ms TTL=58",
-    "Reply from 1.1.1.1: bytes=32 time=11ms TTL=58",
-    "Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)",
+    "package calls",
     "",
-    "$ kubectl get pods -n voice",
-    "NAME                         READY   STATUS    RESTARTS   AGE",
-    "call-router-7d9f8b6c4-x2kqp  1/1     Running   0          3d",
-    "sip-proxy-5c6b7d9f8-lm4tn    1/1     Running   0          3d",
-    "ai-agent-6f7c8d9b5-pq8rs     2/2     Running   1          19h",
-    "",
-    "$ go test ./...",
-    "ok   github.com/seba/platform/calls     0.412s",
-    "ok   github.com/seba/platform/agents    0.287s",
-    "ok   github.com/seba/platform/webhooks  0.198s",
-    "",
-    "$ git log --oneline -3",
-    "778b99a Unir tarjetas de la portada",
-    "1558328 Cambiar el título a AI Engineer",
-    "42b9595 Precisar telefonía IP (VoIP/SIP)",
-  ],
-  [
-    "$ sudo apt update",
-    "Reading package lists... Done",
-    "Building dependency tree... Done",
-    "65 packages can be upgraded.",
-    "",
-    "$ docker ps --format '{{.Names}}  {{.Status}}'",
-    "api        Up 2 hours",
-    "worker     Up 2 hours",
-    "redis      Up 2 hours",
-    "",
-    "$ curl -s localhost:8080/health | jq",
-    "{",
-    '  "status": "ok",',
-    '  "uptime": "2h14m",',
-    '  "version": "1.24.3"',
+    "// Router decide a qué agente va cada llamada entrante.",
+    "type Router struct {",
+    "	agents  map[string]*Agent",
+    "	fallback *Agent",
+    "	log     *slog.Logger",
     "}",
     "",
-    "$ npm run build",
-    "> next build",
-    "✓ Compiled successfully",
-    "✓ Generating static pages (5/5)",
-    "",
-    "$ aws logs tail /aws/lambda/automation --since 5m",
-    "INFO  flow started  id=8f2c",
-    "INFO  llm response  tokens=812 latency=1.2s",
-    "INFO  flow finished status=done",
+    "func (r *Router) Route(ctx context.Context, c *Call) error {",
+    "	agent, ok := r.agents[c.Campaign]",
+    "	if !ok {",
+    '		r.log.Warn("campaign not found", "id", c.Campaign)',
+    "		agent = r.fallback",
+    "	}",
+    "	ctx, cancel := context.WithTimeout(ctx, 30*time.Second)",
+    "	defer cancel()",
+    "	if err := agent.Answer(ctx, c); err != nil {",
+    '		return fmt.Errorf("answer call %s: %w", c.ID, err)',
+    "	}",
+    "	return nil",
+    "}",
   ],
   [
-    "$ sngrep -I capture.pcap",
-    "INVITE sip:1001@pbx.local SIP/2.0",
-    "SIP/2.0 100 Trying",
-    "SIP/2.0 180 Ringing",
-    "SIP/2.0 200 OK",
-    "ACK sip:1001@pbx.local SIP/2.0",
-    "BYE sip:1001@pbx.local SIP/2.0",
+    'import { useEffect, useState } from "react";',
     "",
-    "$ traceroute api.example.com",
-    " 1  192.168.0.1   1.2 ms",
-    " 2  10.20.0.1     8.7 ms",
-    " 3  172.16.4.9   12.4 ms",
+    "export function useCalls(accountId: string) {",
+    "  const [calls, setCalls] = useState<Call[]>([]);",
+    "  const [loading, setLoading] = useState(true);",
     "",
-    "$ python automate.py --dry-run",
-    "→ leyendo 128 tickets",
-    "→ clasificando con IA...",
-    "→ 117 resueltos automáticamente",
+    "  useEffect(() => {",
+    "    const ctrl = new AbortController();",
+    "    fetch(`/api/accounts/${accountId}/calls`, {",
+    "      signal: ctrl.signal,",
+    "    })",
+    "      .then((res) => res.json())",
+    "      .then((data) => setCalls(data.items))",
+    "      .finally(() => setLoading(false));",
+    "    return () => ctrl.abort();",
+    "  }, [accountId]);",
     "",
-    "C:\\Users\\seba> tree /f src",
-    "├── app",
-    "│   ├── cv",
-    "│   └── page.tsx",
-    "└── components",
-    "    └── Hero.tsx",
+    "  return { calls, loading };",
+    "}",
+  ],
+  [
+    "# Clasifica tickets de soporte con un modelo de lenguaje",
+    "import json",
+    "from anthropic import Anthropic",
+    "",
+    "client = Anthropic()",
+    "",
+    "def classify(ticket: dict) -> str:",
+    "    msg = client.messages.create(",
+    '        model="claude-sonnet-5-5",',
+    "        max_tokens=200,",
+    "        messages=[{",
+    '            "role": "user",',
+    '            "content": f"Clasificá este ticket: {ticket[\'text\']}",',
+    "        }],",
+    "    )",
+    "    return msg.content[0].text.strip()",
+    "",
+    "for t in json.load(open('tickets.json')):",
+    "    print(t['id'], classify(t))",
+  ],
+  [
+    "apiVersion: apps/v1",
+    "kind: Deployment",
+    "metadata:",
+    "  name: sip-proxy",
+    "  namespace: voice",
+    "spec:",
+    "  replicas: 3",
+    "  selector:",
+    "    matchLabels:",
+    "      app: sip-proxy",
+    "  template:",
+    "    spec:",
+    "      containers:",
+    "        - name: proxy",
+    "          image: registry/sip-proxy:1.24.3",
+    "          ports:",
+    "            - containerPort: 5060",
+    "              protocol: UDP",
+    "          resources:",
+    "            limits: { cpu: 500m, memory: 256Mi }",
+  ],
+  [
+    "// Llamadas fallidas de la última hora, agrupadas por motivo",
+    "db.calls.aggregate([",
+    "  { $match: {",
+    '      status: "failed",',
+    "      startedAt: { $gte: new Date(Date.now() - 3600e3) },",
+    "  } },",
+    "  { $group: {",
+    '      _id: "$hangupCause",',
+    "      total: { $sum: 1 },",
+    '      carriers: { $addToSet: "$carrier" },',
+    "  } },",
+    "  { $sort: { total: -1 } },",
+    "  { $limit: 10 },",
+    "]);",
+    "",
+    "SELECT account_id, COUNT(*) AS minutes",
+    "FROM usage",
+    "WHERE created_at > NOW() - INTERVAL 1 DAY",
+    "GROUP BY account_id",
+    "ORDER BY minutes DESC;",
+  ],
+  [
+    "export async function runAutomation(flow: Flow) {",
+    "  for (const step of flow.steps) {",
+    "    const started = performance.now();",
+    "    try {",
+    "      const result = await step.run(flow.context);",
+    "      flow.context = { ...flow.context, ...result };",
+    "    } catch (err) {",
+    "      await notify(flow.owner, {",
+    "        step: step.name,",
+    "        error: String(err),",
+    "      });",
+    "      throw err;",
+    "    } finally {",
+    "      metrics.observe(step.name, performance.now() - started);",
+    "    }",
+    "  }",
+    "  return flow.context;",
+    "}",
   ],
 ];
 
-const isPrompt = (l: string) => /^(\$|PS |C:\\)/.test(l);
+const KEYWORDS =
+  /\b(package|import|from|export|function|func|return|const|let|type|struct|if|else|for|in|range|def|async|await|try|catch|finally|throw|defer|new|map|nil|true|false|SELECT|FROM|WHERE|GROUP|BY|ORDER|DESC|AS|COUNT|INTERVAL)\b/;
 
-function Column({ lines, duration, className = "" }: { lines: string[]; duration: string; className?: string }) {
-  // El bloque se repite: la animación sube la mitad del alto y vuelve a empezar sin corte.
-  const block = (key: string) => (
-    <pre key={key} className="pb-8 font-mono text-[11px] leading-5 whitespace-pre">
-      {lines.map((l, i) => (
-        <div key={i} className={isPrompt(l) ? "text-lime/50" : undefined}>
-          {l || " "}
-        </div>
-      ))}
-    </pre>
-  );
+/** Pinta comentarios, strings y palabras clave con un color apenas distinto. */
+function Line({ text }: { text: string }) {
+  const trimmed = text.trimStart();
+  if (trimmed.startsWith("//") || trimmed.startsWith("#")) return <div className="text-violet/40">{text}</div>;
+  const parts = text.split(/("[^"]*"|'[^']*'|`[^`]*`|\b\w+\b)/g);
   return (
-    <div className={`overflow-hidden ${className}`}>
-      <div className="animate-scroll-up" style={{ animationDuration: duration }}>
-        {["a", "b", "c", "d"].map(block)}
-      </div>
+    <div>
+      {parts.map((p, i) =>
+        /^["'`]/.test(p) ? (
+          <span key={i} className="text-coral/40">{p}</span>
+        ) : KEYWORDS.test(p) && /^\w+$/.test(p) ? (
+          <span key={i} className="text-lime/40">{p}</span>
+        ) : (
+          p
+        ),
+      )}
+      {text === "" && " "}
     </div>
   );
 }
 
+// Columnas suficientes para cubrir pantallas muy anchas; las que no entran quedan recortadas.
+const COLUMNS = 9;
+
 export default function TerminalBackground() {
   return (
-    <div className="absolute inset-0 grid grid-cols-1 gap-10 px-6 text-text/[0.09] md:grid-cols-2 lg:grid-cols-3 light:text-text/[0.12] [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">
-      <Column lines={SESSIONS[0]} duration="90s" />
-      <Column lines={SESSIONS[1]} duration="120s" className="hidden md:block" />
-      <Column lines={SESSIONS[2]} duration="100s" className="hidden lg:block" />
+    <div className="absolute inset-0 flex gap-8 overflow-hidden px-6 text-text/[0.09] light:text-text/[0.13] [mask-image:linear-gradient(to_bottom,transparent,black_6%,black_94%,transparent)]">
+      {Array.from({ length: COLUMNS }, (_, col) => {
+        const lines = SNIPPETS[col % SNIPPETS.length];
+        // El bloque se repite 6 veces y la animación sube la mitad: el ciclo empalma sin corte.
+        return (
+          <div key={col} className="w-[24rem] shrink-0">
+            <div className="animate-scroll-up" style={{ animationDuration: `${90 + (col % 4) * 15}s`, animationDelay: `-${col * 13}s` }}>
+              {Array.from({ length: 6 }, (_, r) => (
+                <pre key={r} className="pb-10 font-mono text-[11px] leading-5 whitespace-pre">
+                  {lines.map((l, i) => (
+                    <Line key={i} text={l.replace(/\t/g, "    ")} />
+                  ))}
+                </pre>
+              ))}
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
