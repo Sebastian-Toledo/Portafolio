@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight, FileText, Mail } from "lucide-react";
-import { education, experience, profile, skills } from "@/content/profile";
+import { certifications, education, experience, formatMonth, profile, skills } from "@/content/profile";
 import { GithubIcon } from "./Hero";
 import SectionTitle from "./SectionTitle";
 
@@ -71,10 +71,56 @@ export function Skills() {
   );
 }
 
+export function Certifications() {
+  const total = certifications.reduce((n, g) => n + g.items.length, 0);
+  const [main, ...rest] = certifications;
+  const list = (items: typeof main.items) =>
+    items.map((c) => (
+      <li key={c.title + c.date} className="flex break-inside-avoid items-baseline justify-between gap-4 border-b border-line py-2.5 last:border-0">
+        <div>
+          <p className="font-medium leading-snug">{c.title}</p>
+          {c.issuer !== "Platzi" && <p className="text-sm text-muted">{c.issuer}</p>}
+        </div>
+        {c.date && <span className="shrink-0 font-mono text-xs text-muted">{formatMonth(c.date)}</span>}
+      </li>
+    ));
+
+  return (
+    <section id="certificaciones" className={wrap}>
+      <SectionTitle index="04" title="Certificaciones" subtitle={`${total} cursos y certificados; la mayoría en Platzi.`} />
+      <div className="grid gap-4 lg:grid-cols-3">
+        <div className="tile p-6 lg:col-span-3">
+          <div className="mb-2 flex items-center justify-between gap-4">
+            <p className="label">{main.group}</p>
+            <span className="rounded-full bg-lime/15 px-2.5 py-0.5 font-mono text-xs text-lime">{main.items.length}</span>
+          </div>
+          <ul className="gap-x-10 md:columns-2">{list(main.items)}</ul>
+        </div>
+        {rest.map((g, i) => (
+          <div key={g.group} className="tile p-6">
+            <div className="mb-2 flex items-center justify-between gap-4">
+              <p className="label">{g.group}</p>
+              <span className={`rounded-full px-2.5 py-0.5 font-mono text-xs ${["bg-violet/15 text-violet", "bg-coral/15 text-coral", "bg-text/10 text-muted"][i % 3]}`}>
+                {g.items.length}
+              </span>
+            </div>
+            <ul>{list(g.items)}</ul>
+          </div>
+        ))}
+      </div>
+      {profile.links.certifications && (
+        <a href={profile.links.certifications} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-muted hover:text-text">
+          Ver los certificados en LinkedIn <ArrowUpRight className="size-4" />
+        </a>
+      )}
+    </section>
+  );
+}
+
 export function About() {
   return (
     <section id="sobre-mi" className={wrap}>
-      <SectionTitle index="04" title="Sobre mí" />
+      <SectionTitle index="05" title="Sobre mí" />
       <div className="grid gap-8 md:grid-cols-[1.4fr_1fr]">
         <div className="space-y-5 text-xl leading-relaxed text-muted md:text-2xl">
           {profile.about.map((p) => (
@@ -100,7 +146,7 @@ export function Contact() {
     <section id="contacto" className={`${wrap} pb-16`}>
       <div className="tile relative overflow-hidden p-8 text-center md:p-16">
         <div aria-hidden className="absolute inset-x-0 -bottom-1/2 mx-auto h-full w-3/4 rounded-full bg-lime/20 blur-[100px]" />
-        <p className="label relative">05 · Contacto</p>
+        <p className="label relative">06 · Contacto</p>
         <h2 className="relative mt-4 font-display text-[clamp(3rem,10vw,8rem)] leading-none font-extrabold tracking-tight">
           ¿Hablamos<span className="font-serif font-normal text-lime italic">?</span>
         </h2>

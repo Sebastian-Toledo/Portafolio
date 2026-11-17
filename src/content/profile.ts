@@ -23,6 +23,7 @@ export const profile = {
   links: {
     github: "https://github.com/Sebastian-Toledo",
     linkedin: "https://www.linkedin.com/in/sebastian-toledo-39b272166/",
+    certifications: "https://www.linkedin.com/in/sebastian-toledo-39b272166/details/certifications/",
     email: "seba95matias@gmail.com",
   },
   // Para el CV: texto un poco más largo.
@@ -156,3 +157,79 @@ export const skills: { group: string; items: string[] }[] = [
   { group: "Cloud y herramientas", items: ["AWS", "GCP", "Kubernetes (kubectl)", "Docker", "Git, GitHub y GitLab", "Linux", "Telefonía IP (VoIP/SIP)", "Redes", "Vercel", "Metodologías ágiles"] },
   { group: "Idiomas", items: ["Español (nativo)", "Inglés"] },
 ];
+
+export interface Certification {
+  title: string;
+  issuer: string;
+  /** "AAAA-MM"; vacío si no tiene fecha. */
+  date: string;
+}
+
+// Copiadas de LinkedIn (Licencias y certificaciones). Dentro de cada grupo van de la más nueva a la más vieja.
+export const certifications: { group: string; items: Certification[] }[] = [
+  {
+    group: "IA y automatización",
+    items: [
+      { title: "GitHub Copilot", issuer: "Platzi", date: "2024-05" },
+      { title: "Automatización de procesos con Zapier", issuer: "Platzi", date: "2024-02" },
+      { title: "Introducción a la Inteligencia Artificial", issuer: "Platzi", date: "2024-01" },
+      { title: "Prompt Engineering con ChatGPT", issuer: "Platzi", date: "2024-01" },
+      { title: "Creación de páginas web con ChatGPT", issuer: "Platzi", date: "2024-01" },
+      { title: "Herramientas de IA para equipos de datos", issuer: "Platzi", date: "2024-01" },
+      { title: "Generación de imágenes con IA: DALL-E, Midjourney y Stable Diffusion", issuer: "Platzi", date: "2024-01" },
+      { title: "IA para Product Discovery y Product Design", issuer: "Platzi", date: "2024-01" },
+      { title: "ChatGPT para Product Designers", issuer: "Platzi", date: "2024-01" },
+      { title: "Diseño ético para el desarrollo de productos digitales con IA", issuer: "Platzi", date: "2024-01" },
+      { title: "Diseño de estrategias de negocio con IA", issuer: "Platzi", date: "2024-01" },
+      { title: "Creación de contenido con IA", issuer: "Platzi", date: "2024-01" },
+      { title: "IA para Content Marketing", issuer: "Platzi", date: "2024-01" },
+      { title: "IA para SEO", issuer: "Platzi", date: "2024-01" },
+      { title: "IA para Finanzas", issuer: "Platzi", date: "2024-01" },
+      { title: "Work with Artificial Intelligence Tools", issuer: "Platzi", date: "2024-01" },
+      { title: "Practicing English with ChatGPT", issuer: "Platzi", date: "2024-01" },
+      { title: "Herramientas de IA para developers", issuer: "Platzi", date: "2023-12" },
+    ],
+  },
+  {
+    group: "Ciberseguridad",
+    items: [
+      { title: "Introducción al desarrollo seguro", issuer: "Backtrack Academy", date: "2025-09" },
+      { title: "Protegé tu negocio: ciberseguridad en el teletrabajo", issuer: "Fundación Santa María la Real", date: "2025-09" },
+      { title: "Ciberseguridad y privacidad para empresas", issuer: "Platzi", date: "2025-03" },
+      { title: "Curso de ciberseguridad y privacidad para empresas", issuer: "Platzi", date: "2024-09" },
+      { title: "Ciberseguridad para desarrollo web", issuer: "Platzi", date: "2024-05" },
+      { title: "Taller de ciberseguridad", issuer: "Platzi", date: "2024-05" },
+      { title: "Ciberseguridad para empresas", issuer: "Platzi", date: "2023-09" },
+    ],
+  },
+  {
+    group: "Desarrollo",
+    items: [
+      { title: "Go intermedio: programación orientada a objetos y concurrencia", issuer: "Platzi", date: "2024-06" },
+      { title: "Unit testing con Go", issuer: "Platzi", date: "2024-05" },
+      { title: "Git y GitHub", issuer: "Platzi", date: "2024-01" },
+      { title: "Programación en Go", issuer: "Platzi", date: "2023-12" },
+      { title: "Fundamentos de ingeniería de software", issuer: "Platzi", date: "2023-09" },
+    ],
+  },
+  {
+    group: "Agilidad y otros",
+    items: [
+      { title: "Vozy Pro · Nivel básico", issuer: "Vozy", date: "2023-12" },
+      { title: "Gestión de equipos ágiles", issuer: "Platzi", date: "2023-10" },
+      { title: "Adaptabilidad y flexibilidad para el crecimiento personal", issuer: "Platzi", date: "2023-10" },
+      { title: "Curso profesional de Scrum", issuer: "Platzi", date: "2023-09" },
+      { title: "Historias de usuario en Scrum", issuer: "Platzi", date: "2023-09" },
+      { title: "Introducción a Platzi", issuer: "Platzi", date: "" },
+    ],
+  },
+];
+
+const MONTHS = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sept", "oct", "nov", "dic"];
+
+/** "2024-05" → "may 2024". */
+export function formatMonth(date: string) {
+  if (!date) return "";
+  const [y, m] = date.split("-");
+  return `${MONTHS[Number(m) - 1]} ${y}`;
+}

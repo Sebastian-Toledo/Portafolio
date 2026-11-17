@@ -1,7 +1,7 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
-import { About, Contact, Experience, Skills } from "@/components/Sections";
+import { About, Certifications, Contact, Experience, Skills } from "@/components/Sections";
 import Spotlight from "@/components/Spotlight";
 import DevBanner from "@/components/DevBanner";
 
@@ -15,6 +15,7 @@ export default function HomePage() {
         <Projects />
         <Experience />
         <Skills />
+        <Certifications />
         <About />
         <Contact />
       </main>

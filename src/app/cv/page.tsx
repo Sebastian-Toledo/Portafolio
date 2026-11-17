@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { education, experience, profile, projects, skills } from "@/content/profile";
+import { certifications, education, experience, profile, projects, skills } from "@/content/profile";
 import Nav from "@/components/Nav";
 import PrintButton from "@/components/PrintButton";
 import Spotlight from "@/components/Spotlight";
@@ -110,6 +110,18 @@ export default function CvPage() {
                 </ul>
               </CvSection>
             ))}
+            <CvSection title="Certificaciones">
+              <ul className="space-y-3 text-sm print:space-y-1.5 print:text-[8.5pt]">
+                {certifications.map((g) => (
+                  <li key={g.group}>
+                    <p className="font-semibold text-zinc-950">
+                      {g.group} <span className="font-mono text-xs font-normal text-zinc-500">· {g.items.length}</span>
+                    </p>
+                    <p className="text-zinc-600">{g.items.slice(0, 3).map((c) => c.title).join(" · ")}</p>
+                  </li>
+                ))}
+              </ul>
+            </CvSection>
             <CvSection title="Educación">
               <ul className="space-y-3 text-sm print:space-y-1.5 print:text-[8.5pt]">
                 {education.map((e) => (
