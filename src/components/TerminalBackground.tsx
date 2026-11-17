@@ -142,15 +142,15 @@ const KEYWORDS =
 /** Pinta comentarios, strings y palabras clave con un color apenas distinto. */
 function Line({ text }: { text: string }) {
   const trimmed = text.trimStart();
-  if (trimmed.startsWith("//") || trimmed.startsWith("#")) return <div className="text-violet/40">{text}</div>;
+  if (trimmed.startsWith("//") || trimmed.startsWith("#")) return <div className="text-violet/40 light:text-violet/60">{text}</div>;
   const parts = text.split(/("[^"]*"|'[^']*'|`[^`]*`|\b\w+\b)/g);
   return (
     <div>
       {parts.map((p, i) =>
         /^["'`]/.test(p) ? (
-          <span key={i} className="text-coral/40">{p}</span>
+          <span key={i} className="text-coral/40 light:text-coral/60">{p}</span>
         ) : KEYWORDS.test(p) && /^\w+$/.test(p) ? (
-          <span key={i} className="text-lime/40">{p}</span>
+          <span key={i} className="text-lime/40 light:text-lime/60">{p}</span>
         ) : (
           p
         ),
@@ -165,7 +165,7 @@ const COLUMNS = 9;
 
 export default function TerminalBackground() {
   return (
-    <div className="absolute inset-0 flex gap-8 overflow-hidden px-6 text-text/[0.09] light:text-text/[0.13] [mask-image:linear-gradient(to_bottom,transparent,black_6%,black_94%,transparent)]">
+    <div className="absolute inset-0 flex gap-8 overflow-hidden px-6 text-text/[0.09] light:text-text/[0.22] [mask-image:linear-gradient(to_bottom,transparent,black_6%,black_94%,transparent)]">
       {Array.from({ length: COLUMNS }, (_, col) => {
         const lines = SNIPPETS[col % SNIPPETS.length];
         // El bloque se repite 6 veces y la animación sube la mitad: el ciclo empalma sin corte.
