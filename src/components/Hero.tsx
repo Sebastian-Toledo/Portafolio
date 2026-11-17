@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ArrowDownRight, ArrowUpRight, FileText, MapPin } from "lucide-react";
-import { profile, projects, skills } from "@/content/profile";
+import { AppWindow, ArrowDownRight, ArrowUpRight, Bot, FileText, Mail, MapPin, Server } from "lucide-react";
+import { experience, profile, projects, skills } from "@/content/profile";
 import RotatingText from "./RotatingText";
 
 function GithubIcon({ className }: { className?: string }) {
@@ -12,7 +12,16 @@ function GithubIcon({ className }: { className?: string }) {
 }
 export { GithubIcon };
 
+const FOCUS = [
+  { icon: Bot, text: "Automatizaciones con IA", color: "text-violet" },
+  { icon: Server, text: "Servicios y APIs en Go", color: "text-lime" },
+  { icon: AppWindow, text: "Apps web con React", color: "text-coral" },
+];
+
+const chip = "inline-flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-sm font-semibold transition-colors hover:bg-text/5";
+
 export default function Hero() {
+  const current = experience[0];
   const featured = projects.find((p) => p.featured);
   const firstName = profile.name.split(" ")[0];
   const lastName = profile.name.split(" ").slice(1).join(" ");
@@ -43,28 +52,69 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Avatar */}
-      <div className="tile rise flex items-center gap-5 p-6 [animation-delay:80ms] md:col-span-2 md:flex-col md:items-start md:justify-between">
-        <div className="relative grid size-20 shrink-0 place-items-center rounded-2xl bg-[conic-gradient(from_200deg,var(--color-lime),var(--color-violet),var(--color-coral),var(--color-lime))] font-display text-3xl font-extrabold text-ink md:size-28 md:text-4xl light:bg-[conic-gradient(from_200deg,color-mix(in_srgb,var(--color-lime)_28%,white),color-mix(in_srgb,var(--color-violet)_28%,white),color-mix(in_srgb,var(--color-coral)_28%,white),color-mix(in_srgb,var(--color-lime)_28%,white))] light:text-text light:ring-1 light:ring-line">
-          {profile.initials}
+      {/* Tarjeta personal: avatar, puesto actual, links y estado */}
+      <div className="tile rise flex flex-col gap-6 p-6 [animation-delay:80ms] md:col-span-2 md:row-span-2">
+        <div className="flex items-center gap-4">
+          <div className="relative grid size-16 shrink-0 place-items-center rounded-2xl bg-[conic-gradient(from_200deg,var(--color-lime),var(--color-violet),var(--color-coral),var(--color-lime))] font-display text-2xl font-extrabold text-ink light:bg-[conic-gradient(from_200deg,color-mix(in_srgb,var(--color-lime)_28%,white),color-mix(in_srgb,var(--color-violet)_28%,white),color-mix(in_srgb,var(--color-coral)_28%,white),color-mix(in_srgb,var(--color-lime)_28%,white))] light:text-text light:ring-1 light:ring-line">
+            {profile.initials}
+          </div>
+          <div>
+            <p className="font-display text-lg leading-tight font-bold">{profile.name}</p>
+            <p className="mt-1 flex items-center gap-1.5 text-sm text-muted">
+              <MapPin className="size-4 shrink-0" /> {profile.location}
+            </p>
+          </div>
         </div>
-        <div>
-          <p className="font-display text-lg font-bold">{profile.name}</p>
-          <p className="mt-1 flex items-center gap-1.5 text-sm text-muted">
-            <MapPin className="size-4" /> {profile.location}
-          </p>
-        </div>
-      </div>
 
-      {/* Disponibilidad */}
-      <div className="tile rise flex items-center gap-4 p-6 [animation-delay:140ms] md:col-span-2">
-        <span className="relative flex size-3">
-          {profile.available && <span className="absolute inline-flex size-full animate-pulse-ring rounded-full bg-lime" />}
-          <span className={`relative inline-flex size-3 rounded-full ${profile.available ? "bg-lime" : "bg-muted"}`} />
-        </span>
+        {current && (
+          <div className="rounded-2xl border border-line bg-panel-2 p-4">
+            <p className="label">Hoy</p>
+            <p className="mt-1 font-display text-xl font-bold">
+              {profile.role} <span className="font-serif font-normal text-muted italic">en</span> {current.company}
+            </p>
+            <p className="mt-1 text-sm text-muted">Desde {current.period.split(" — ")[0]} · Remoto</p>
+          </div>
+        )}
+
+        <div className="flex flex-wrap gap-2">
+          {profile.links.email && (
+            <a href={`mailto:${profile.links.email}`} className={chip}>
+              <Mail className="size-4" /> Email
+            </a>
+          )}
+          <a href={profile.links.github} target="_blank" rel="noreferrer" className={chip}>
+            <GithubIcon className="size-4" /> GitHub
+          </a>
+          {profile.links.linkedin && (
+            <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className={chip}>
+              LinkedIn <ArrowUpRight className="size-4" />
+            </a>
+          )}
+        </div>
+
         <div>
-          <p className="label">Estado</p>
-          <p className="font-semibold">{profile.availabilityText}</p>
+          <p className="label">En qué me enfoco</p>
+          <ul className="mt-3 space-y-2.5">
+            {FOCUS.map(({ icon: Icon, text, color }) => (
+              <li key={text} className="flex items-center gap-3 font-medium">
+                <span className={`grid size-8 shrink-0 place-items-center rounded-lg bg-panel-2 ${color}`}>
+                  <Icon className="size-4" aria-hidden />
+                </span>
+                {text}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-auto flex items-center gap-4 border-t border-line pt-5">
+          <span className="relative flex size-3">
+            {profile.available && <span className="absolute inline-flex size-full animate-pulse-ring rounded-full bg-lime" />}
+            <span className={`relative inline-flex size-3 rounded-full ${profile.available ? "bg-lime" : "bg-muted"}`} />
+          </span>
+          <div>
+            <p className="label">Estado</p>
+            <p className="font-semibold">{profile.availabilityText}</p>
+          </div>
         </div>
       </div>
 

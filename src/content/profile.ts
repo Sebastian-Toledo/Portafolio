@@ -10,8 +10,9 @@ export const profile = {
   // Frases que van rotando en la portada ("Hola, soy Sebastian y …").
   rotating: [
     "construyo apps de punta a punta",
-    "resuelvo errores en producción",
-    "trabajo con Go, React y Node.js",
+    "automatizo procesos con IA",
+    "desarrollo servicios en Go",
+    "armo interfaces con React",
     "cocino con código",
   ],
   summary:
