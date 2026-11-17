@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import TerminalBackground from "./TerminalBackground";
 
 /**
  * Efectos que siguen al mouse:
@@ -35,8 +36,8 @@ export default function Spotlight() {
       <div className="absolute -bottom-40 left-1/3 size-[30rem] animate-float rounded-full bg-lime/10 blur-[120px] [animation-delay:-12s]" />
       {/* Reflector que sigue al mouse */}
       <div className="absolute inset-0 bg-[radial-gradient(600px_circle_at_var(--gx,50%)_var(--gy,20%),color-mix(in_srgb,var(--color-lime)_6%,transparent),transparent_40%)]" />
-      {/* Grilla sutil */}
-      <div className="absolute inset-0 bg-[linear-gradient(color-mix(in_srgb,var(--color-text)_3%,transparent)_1px,transparent_1px),linear-gradient(90deg,color-mix(in_srgb,var(--color-text)_3%,transparent)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]" />
+      {/* Comandos de terminal de fondo */}
+      <TerminalBackground />
     </div>
   );
 }

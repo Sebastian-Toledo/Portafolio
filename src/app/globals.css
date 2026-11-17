@@ -19,6 +19,7 @@
   --animate-marquee: marquee 28s linear infinite;
   --animate-float: float 18s ease-in-out infinite;
   --animate-pulse-ring: pulse-ring 2s ease-out infinite;
+  --animate-scroll-up: scroll-up 100s linear infinite;
 }
 
 /* Tema claro: mismas fichas, otros valores. El tema lo fija <html data-theme> (ver layout.tsx). */
@@ -46,6 +47,11 @@
 @keyframes marquee {
   to {
     transform: translateX(-50%);
+  }
+}
+@keyframes scroll-up {
+  to {
+    transform: translateY(-50%);
   }
 }
 @keyframes float {
