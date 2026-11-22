@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ArrowDownRight, ArrowUpRight, Cloud, Database, FileText, MapPin, Phone } from "lucide-react";
-import { experience, profile, projects, skills } from "@/content/profile";
+import { ArrowDownRight, ArrowUpRight, FileText } from "lucide-react";
+import { profile, projects, skills } from "@/content/profile";
 import RotatingText from "./RotatingText";
 
 function GithubIcon({ className }: { className?: string }) {
@@ -12,17 +12,9 @@ function GithubIcon({ className }: { className?: string }) {
 }
 export { GithubIcon };
 
-// Lo que manejo además de lo que dicen las frases de la portada.
-const FOCUS = [
-  { icon: Phone, text: "Telefonía IP (VoIP/SIP) y redes", color: "text-violet" },
-  { icon: Cloud, text: "AWS, GCP y Kubernetes", color: "text-lime" },
-  { icon: Database, text: "MongoDB y Elasticsearch", color: "text-coral" },
-];
-
-const chip = "inline-flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-sm font-semibold transition-colors hover:bg-text/5";
+const chip = "inline-flex items-center gap-2 rounded-full border border-line px-5 py-3 font-semibold transition-colors hover:bg-text/5";
 
 export default function Hero() {
-  const current = experience[0];
   const featured = projects.find((p) => p.featured);
   const firstName = profile.name.split(" ")[0];
   const lastName = profile.name.split(" ").slice(1).join(" ");
@@ -31,7 +23,7 @@ export default function Hero() {
   return (
     <section className="mx-auto grid w-[min(72rem,calc(100%-2rem))] gap-4 pt-10 md:grid-cols-6 md:pt-16" aria-label="Presentación">
       {/* Presentación */}
-      <div className="tile rise flex flex-col justify-between gap-10 p-7 md:col-span-4 md:row-span-2 md:p-10">
+      <div className="tile rise flex flex-col justify-between gap-10 p-7 md:col-span-6 md:p-10">
         <p className="label">Portafolio · {new Date().getFullYear()}</p>
         <div>
           <h1 className="font-display text-[clamp(3rem,9vw,7.5rem)] leading-[0.88] font-extrabold tracking-tight">
@@ -47,37 +39,9 @@ export default function Hero() {
           <a href="#proyectos" className="group inline-flex items-center gap-2 rounded-full bg-lime px-5 py-3 font-semibold text-ink transition-transform hover:-translate-y-0.5">
             Ver proyectos <ArrowDownRight className="size-4 transition-transform group-hover:rotate-[-45deg]" />
           </a>
-          <Link href="/cv" className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-3 font-semibold transition-colors hover:bg-text/5">
+          <Link href="/cv" className={chip}>
             <FileText className="size-4" /> Ver CV
           </Link>
-        </div>
-      </div>
-
-      {/* Tarjeta personal: avatar, puesto actual, links y estado */}
-      <div className="tile rise flex flex-col items-center justify-between gap-6 p-6 text-center [animation-delay:80ms] md:col-span-2 md:row-span-2">
-        <div className="flex flex-col items-center gap-3">
-          <div className="relative grid size-16 shrink-0 place-items-center rounded-2xl bg-[conic-gradient(from_200deg,var(--color-lime),var(--color-violet),var(--color-coral),var(--color-lime))] font-display text-2xl font-extrabold text-ink light:bg-[conic-gradient(from_200deg,color-mix(in_srgb,var(--color-lime)_28%,white),color-mix(in_srgb,var(--color-violet)_28%,white),color-mix(in_srgb,var(--color-coral)_28%,white),color-mix(in_srgb,var(--color-lime)_28%,white))] light:text-text light:ring-1 light:ring-line">
-            {profile.initials}
-          </div>
-          <div>
-            <p className="font-display text-lg leading-tight font-bold">{profile.name}</p>
-            <p className="mt-1 flex items-center justify-center gap-1.5 text-sm text-muted">
-              <MapPin className="size-4 shrink-0" /> {profile.location}
-            </p>
-          </div>
-        </div>
-
-        {current && (
-          <div className="w-full rounded-2xl border border-line bg-panel-2 p-4">
-            <p className="label">Hoy</p>
-            <p className="mt-1 font-display text-xl font-bold">
-              {profile.role} <span className="font-serif font-normal text-muted italic">en</span> {current.company}
-            </p>
-            <p className="mt-1 text-sm text-muted">Desde {current.period.split(" — ")[0].replace(/\D+/g, "")} · Remoto</p>
-          </div>
-        )}
-
-        <div className="flex flex-wrap justify-center gap-2">
           <a href={profile.links.github} target="_blank" rel="noreferrer" className={chip}>
             <GithubIcon className="size-4" /> GitHub
           </a>
@@ -86,31 +50,6 @@ export default function Hero() {
               LinkedIn <ArrowUpRight className="size-4" />
             </a>
           )}
-        </div>
-
-        <div>
-          <p className="label">También manejo</p>
-          <ul className="mx-auto mt-3 w-fit space-y-2.5 text-left">
-            {FOCUS.map(({ icon: Icon, text, color }) => (
-              <li key={text} className="flex items-center gap-3 font-medium">
-                <span className={`grid size-8 shrink-0 place-items-center rounded-lg bg-panel-2 ${color}`}>
-                  <Icon className="size-4" aria-hidden />
-                </span>
-                {text}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="flex w-full items-center justify-center gap-4 border-t border-line pt-5 text-left">
-          <span className="relative flex size-3">
-            {profile.available && <span className="absolute inline-flex size-full animate-pulse-ring rounded-full bg-lime" />}
-            <span className={`relative inline-flex size-3 rounded-full ${profile.available ? "bg-lime" : "bg-muted"}`} />
-          </span>
-          <div>
-            <p className="label">Estado</p>
-            <p className="font-semibold">{profile.availabilityText}</p>
-          </div>
         </div>
       </div>
 
