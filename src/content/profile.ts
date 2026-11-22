@@ -77,9 +77,9 @@ export const projects: Project[] = [
   {
     slug: "intervalos",
     title: "Intervalos",
-    tagline: "Timer de entrenamiento por intervalos para Android",
+    tagline: "App Android a pedido de un profesor de educación física",
     description:
-      "Una app para entrenar por intervalos: Tabata, HIIT, boxeo o circuitos. Armás tus timers con preparación, rondas, ciclos y enfriamiento; durante el entrenamiento la pantalla cambia de color según la fase y una guía por voz anuncia las rondas y la cuenta regresiva. Sigue contando y sonando con la pantalla apagada y guarda el historial. La interfaz está hecha con HTML, CSS y JavaScript dentro de un WebView, y la parte nativa en Java (servicio en segundo plano, notificaciones, voz y sonidos), sin librerías externas.",
+      "La hice a pedido de un familiar que es profesor de educación física y necesitaba una app para usar en sus clases y entrenamientos. Sirve para entrenar por intervalos: Tabata, HIIT, boxeo o circuitos. Armás tus timers con preparación, rondas, ciclos y enfriamiento; durante el entrenamiento la pantalla cambia de color según la fase y una guía por voz anuncia las rondas y la cuenta regresiva. Sigue contando y sonando con la pantalla apagada y guarda el historial. La interfaz está hecha con HTML, CSS y JavaScript dentro de un WebView, y la parte nativa en Java (servicio en segundo plano, notificaciones, voz y sonidos), sin librerías externas.",
     tags: ["Android", "Java", "JavaScript", "WebView", "Text-to-Speech"],
     screens: [
       { src: "/projects/intervalos-home.png", alt: "Lista de timers guardados" },
