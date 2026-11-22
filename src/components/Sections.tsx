@@ -11,33 +11,53 @@ export function Experience() {
   return (
     <section id="experiencia" className={wrap}>
       <SectionTitle index="02" title="Experiencia" />
-      <ol className="relative space-y-4 before:absolute before:top-2 before:bottom-2 before:left-[7px] before:w-px before:bg-line">
-        {experience.map((job) => (
-          <li key={job.company} className="relative grid gap-3 pl-8">
-            <span className="absolute top-2 left-0 size-[15px] rounded-full border-4 border-ink bg-lime" />
-            <div className="tile space-y-6 p-6">
-              <p className="inline-flex items-center gap-2 rounded-full bg-lime/15 px-3 py-1 font-mono text-sm font-semibold text-lime">
-                <CalendarDays className="size-4" aria-hidden /> {job.period}
-              </p>
-              {job.positions.map((pos) => (
-                <div key={pos.title}>
-                  <h3 className="font-display text-xl font-bold">
-                    {pos.title} <span className="font-serif font-normal text-muted italic">en {job.company}</span>
-                  </h3>
-                  <p className="mt-2 inline-block rounded-md bg-text/8 px-2 py-0.5 font-mono text-sm text-text">{pos.period}</p>
-                  <p className="mt-2 text-muted">{pos.description}</p>
-                  <ul className="mt-4 space-y-1.5">
-                    {pos.highlights.map((h) => (
-                      <li key={h} className="flex gap-2 text-sm">
-                        <span className="text-lime">→</span> {h}
-                      </li>
-                    ))}
-                  </ul>
+      <ol className="space-y-4">
+        {experience.map((job, ji) => {
+          const isCurrent = job.period.includes("Hoy");
+          return (
+            <li key={job.company} className="tile p-6 md:p-8">
+              {/* Encabezado de la empresa */}
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line pb-5">
+                <h3 className="font-display text-3xl font-extrabold tracking-tight">{job.company}</h3>
+                <div className="flex flex-wrap items-center gap-2">
+                  {isCurrent && (
+                    <span className="rounded-full border border-lime/50 px-2.5 py-0.5 font-mono text-xs font-semibold tracking-widest text-lime uppercase">Actual</span>
+                  )}
+                  <span className="inline-flex items-center gap-2 rounded-full bg-lime/15 px-3 py-1 font-mono text-sm font-semibold text-lime">
+                    <CalendarDays className="size-4" aria-hidden /> {job.period}
+                  </span>
                 </div>
-              ))}
-            </div>
-          </li>
-        ))}
+              </div>
+
+              {/* Puestos: línea de tiempo interna, del más nuevo al más viejo */}
+              <ol className="relative mt-6 space-y-8 before:absolute before:top-2 before:bottom-2 before:left-[5px] before:w-px before:bg-line">
+                {job.positions.map((pos, pi) => {
+                  const active = ji === 0 && pi === 0 && isCurrent;
+                  return (
+                    <li key={pos.title} className="relative pl-7">
+                      <span
+                        aria-hidden
+                        className={`absolute top-2 left-0 size-[11px] rounded-full ring-4 ring-panel ${active ? "bg-lime shadow-[0_0_12px_var(--color-lime)]" : "bg-muted"}`}
+                      />
+                      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                        <h4 className={`font-display text-xl font-bold ${active ? "" : "text-text/90"}`}>{pos.title}</h4>
+                        <span className="font-mono text-sm text-muted">{pos.period}</span>
+                      </div>
+                      <p className="mt-2 text-muted">{pos.description}</p>
+                      <ul className="mt-3 space-y-1.5">
+                        {pos.highlights.map((h) => (
+                          <li key={h} className="flex gap-2 text-sm leading-relaxed">
+                            <span className="text-lime">→</span> {h}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  );
+                })}
+              </ol>
+            </li>
+          );
+        })}
       </ol>
 
       <div className="mt-10 grid gap-4">
