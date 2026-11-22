@@ -222,10 +222,10 @@ export function Contact() {
   const { github, linkedin } = profile.links;
   return (
     <section id="contacto" className={`${wrap} pb-16`}>
-      <div className="tile relative overflow-hidden p-8 text-center md:p-16">
+      <div className="tile @container relative overflow-hidden p-8 text-center md:p-16">
         <div aria-hidden className="absolute inset-x-0 -bottom-1/2 mx-auto h-full w-3/4 rounded-full bg-lime/20 blur-[100px]" />
         <p className="label relative">06 · Contacto</p>
-        <h2 className="relative mt-4 font-display text-[clamp(3rem,10vw,8rem)] leading-none font-extrabold tracking-tight">
+        <h2 className="relative mt-4 font-display text-[clamp(2.25rem,14cqi,6.5rem)] leading-none font-extrabold tracking-tight">
           ¿Hablamos<span className="font-serif font-normal text-lime italic">?</span>
         </h2>
         <p className="relative mx-auto mt-4 max-w-lg text-lg text-muted">
