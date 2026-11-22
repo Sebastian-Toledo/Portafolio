@@ -16,7 +16,7 @@ export const profile = {
   ],
   summary:
     "Desarrollador full stack de La Plata. Me especializo en encontrar y resolver errores en sistemas en producción, y disfruto construir productos completos: del frontend a la base de datos.",
-  location: "La Plata, Argentina · Remoto",
+  location: "La Plata, Argentina",
   available: true,
   availabilityText: "Abierto a charlar sobre proyectos",
   links: {
@@ -32,8 +32,8 @@ export const profile = {
   contactForm: "",
   // Para el CV: texto un poco más largo.
   about: [
-    "Soy desarrollador full stack y AI Engineer, y estudio Analista Programador Universitario en la Facultad de Informática de la UNLP. Desde 2021 trabajo de forma remota en productos web: en mis primeras tres experiencias laborales me dediqué al frontend con React.",
-    "Desde que entré a Vozy hago desarrollos de punta a punta a la par que atiendo soporte: investigo y resuelvo errores de los productos de la empresa con Go, AWS, GCP y Kubernetes, consultas en MongoDB y Elasticsearch, y conocimientos de telefonía IP (VoIP/SIP) y redes. Actualmente mi rol cambió a AI Engineer: me dedico a crear automatizaciones con IA y a usar la IA para mejorar la plataforma. Además, la incorporo en mi trabajo diario para desarrollar, investigar errores y documentar más rápido.",
+    "Soy desarrollador full stack y AI Engineer, y estudio Analista Programador Universitario en la Facultad de Informática de la UNLP. Desde 2021 trabajo en productos web: en mis primeras tres experiencias laborales me dediqué al frontend con React.",
+    "Entré a Vozy como pasante y ahí aprendí Go, AWS, GCP, Kubernetes, MongoDB, Elasticsearch y telefonía IP (VoIP/SIP). Después pasé a Software Engineer, desarrollando de punta a punta y resolviendo errores de los productos en producción. Hoy soy AI Engineer y full stack: creo herramientas con IA para el resto de la empresa —skills para asistentes de IA y servidores MCP— y uso la IA en mi trabajo diario para desarrollar, investigar errores y documentar más rápido.",
     "En mis ratos libres armo proyectos personales, en los que también programo con asistentes de IA; el más especial es “Con amor, mamá”, el recetario digital con las recetas de mi mamá.",
   ],
 };
@@ -92,54 +92,100 @@ export const projects: Project[] = [
   },
 ];
 
-export interface Experience {
-  role: string;
-  company: string;
+export interface Position {
+  title: string;
   period: string;
   description: string;
   highlights: string[];
 }
 
+export interface Experience {
+  company: string;
+  /** Período total en la empresa. */
+  period: string;
+  /** Puestos dentro de la empresa, del más nuevo al más viejo. */
+  positions: Position[];
+}
+
 export const experience: Experience[] = [
   {
-    role: "AI Engineer & Full Stack Developer",
     company: "Vozy",
     period: "Sep 2023 — Hoy",
-    description:
-      "Hoy, como AI Engineer, creo automatizaciones con IA y uso la IA para mejorar la plataforma. Antes trabajé en el área de debugging, analizando y resolviendo los errores de los productos de la empresa. Remoto.",
-    highlights: [
-      "Automatizaciones con IA y mejoras de la plataforma impulsadas por IA",
-      "Backend en Go y frontend en React",
-      "Telefonía IP (VoIP/SIP) y redes: diagnóstico de llamadas y conectividad",
-      "Monitoreo de servicios y lambdas con AWS, GCP y kubectl",
-      "Consultas en MongoDB y en Elasticsearch a través de Kibana",
-      "Uso diario de MySQL, Redis y GitLab",
+    positions: [
+      {
+        title: "AI Engineer & Full Stack Developer",
+        period: "XXX 20XX — Hoy", // TODO: completar el mes en que empezó este rol
+        description:
+          "Creo herramientas con IA para que las use el resto de la empresa, y sigo desarrollando de punta a punta en la plataforma.",
+        highlights: [
+          "Skills para asistentes de IA que los demás equipos usan en su trabajo diario",
+          "Servidores MCP que conectan la IA con las herramientas y los datos de la empresa",
+          "Automatizaciones con IA y mejoras de la plataforma impulsadas por IA",
+          "Desarrollo full stack con Go y React",
+        ],
+      },
+      {
+        title: "Software Engineer · Full Stack",
+        period: "XXX 20XX — XXX 20XX", // TODO: completar
+        description:
+          "Desarrollé funcionalidades de punta a punta y me ocupé de investigar y resolver los errores de los productos en producción.",
+        highlights: [
+          "Backend en Go y frontend en React",
+          "Investigación y resolución de errores en producción",
+          "Diagnóstico de llamadas y conectividad con telefonía IP (VoIP/SIP) y redes",
+          "Monitoreo de servicios y lambdas con AWS, GCP y kubectl",
+          "Uso diario de MongoDB, MySQL, Redis y GitLab",
+        ],
+      },
+      {
+        title: "Pasante",
+        period: "Sep 2023 — XXX 20XX", // TODO: completar
+        description:
+          "Entré en el área de soporte y debugging. Fue mi primer contacto con una plataforma de voz en producción y aprendí cómo funciona por dentro.",
+        highlights: [
+          "Aprendí Go y la arquitectura de los servicios de la plataforma",
+          "Aprendí telefonía IP (VoIP/SIP) y redes: cómo viaja una llamada y dónde puede fallar",
+          "Primeros pasos con AWS, GCP y Kubernetes para revisar servicios",
+          "Consultas en MongoDB y en Elasticsearch (Kibana) para investigar errores",
+        ],
+      },
     ],
   },
   {
-    role: "Desarrollador Full Stack (freelance)",
     company: "Casa Estella",
     period: "Ene 2023 — Jun 2023",
-    description: "Desarrollé una app para gestionar los pedidos de una imprenta. Remoto.",
-    highlights: [
-      "Frontend con React, TypeScript y Chakra UI",
-      "Backend con Node.js, TypeScript y Express",
-      "Base de datos en MongoDB",
+    positions: [
+      {
+        title: "Desarrollador Full Stack (freelance)",
+        period: "Ene 2023 — Jun 2023",
+        description: "Desarrollé una app para gestionar los pedidos de una imprenta.",
+        highlights: ["Frontend con React, TypeScript y Chakra UI", "Backend con Node.js, TypeScript y Express", "Base de datos en MongoDB"],
+      },
     ],
   },
   {
-    role: "Frontend Developer / Full Stack",
     company: "Minutentag",
     period: "May 2022 — Sep 2022",
-    description: "Empresa de desarrollo de software. Remoto.",
-    highlights: ["Módulo de pre-ingreso con React y Semantic UI", "Proyectos con WordPress"],
+    positions: [
+      {
+        title: "Frontend Developer / Full Stack",
+        period: "May 2022 — Sep 2022",
+        description: "Empresa de desarrollo de software.",
+        highlights: ["Módulo de pre-ingreso con React y Semantic UI", "Proyectos con WordPress"],
+      },
+    ],
   },
   {
-    role: "Frontend Developer",
     company: "Campeak",
     period: "Jul 2021 — Dic 2021",
-    description: "Software de gestión para campings. Remoto.",
-    highlights: ["Módulo de pre-ingreso con React y Semantic UI"],
+    positions: [
+      {
+        title: "Frontend Developer",
+        period: "Jul 2021 — Dic 2021",
+        description: "Software de gestión para campings.",
+        highlights: ["Módulo de pre-ingreso con React y Semantic UI"],
+      },
+    ],
   },
 ];
 

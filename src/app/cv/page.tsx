@@ -60,19 +60,35 @@ export default function CvPage() {
             <CvSection title="Experiencia">
               <ol className="space-y-5 print:space-y-3">
                 {experience.map((job) => (
-                  <li key={`${job.company}-${job.period}`} className="break-inside-avoid">
-                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <h3 className="font-display text-lg font-bold text-zinc-950 print:text-[10.5pt]">
-                        {job.role} · <span className="font-normal">{job.company}</span>
-                      </h3>
-                      <span className="font-mono text-xs text-zinc-500">{job.period}</span>
-                    </div>
-                    <p className="mt-1 text-zinc-600">{job.description}</p>
-                    <ul className="mt-2 list-disc space-y-1 pl-5 text-sm marker:text-zinc-400 print:mt-1 print:space-y-0 print:text-[8.5pt]">
-                      {job.highlights.map((h) => (
-                        <li key={h}>{h}</li>
+                  <li key={job.company}>
+                    {job.positions.length > 1 && (
+                      <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2 print:mb-1">
+                        <h3 className="font-display text-lg font-bold text-zinc-950 print:text-[10.5pt]">{job.company}</h3>
+                        <span className="font-mono text-xs text-zinc-500">{job.period}</span>
+                      </div>
+                    )}
+                    <ol className={job.positions.length > 1 ? "space-y-3 border-l-2 border-zinc-200 pl-4 print:space-y-2" : ""}>
+                      {job.positions.map((pos) => (
+                        <li key={pos.title} className="break-inside-avoid">
+                          <div className="flex flex-wrap items-baseline justify-between gap-2">
+                            {job.positions.length > 1 ? (
+                              <h4 className="font-semibold text-zinc-950 print:text-[9.5pt]">{pos.title}</h4>
+                            ) : (
+                              <h3 className="font-display text-lg font-bold text-zinc-950 print:text-[10.5pt]">
+                                {pos.title} · <span className="font-normal">{job.company}</span>
+                              </h3>
+                            )}
+                            <span className="font-mono text-xs text-zinc-500">{pos.period}</span>
+                          </div>
+                          <p className="mt-1 text-zinc-600">{pos.description}</p>
+                          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm marker:text-zinc-400 print:mt-1 print:space-y-0 print:text-[8.5pt]">
+                            {pos.highlights.map((h) => (
+                              <li key={h}>{h}</li>
+                            ))}
+                          </ul>
+                        </li>
                       ))}
-                    </ul>
+                    </ol>
                   </li>
                 ))}
               </ol>

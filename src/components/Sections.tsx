@@ -13,21 +13,26 @@ export function Experience() {
       <SectionTitle index="02" title="Experiencia" />
       <ol className="relative space-y-4 before:absolute before:top-2 before:bottom-2 before:left-[7px] before:w-px before:bg-line">
         {experience.map((job) => (
-          <li key={`${job.company}-${job.period}`} className="relative grid gap-3 pl-8">
+          <li key={job.company} className="relative grid gap-3 pl-8">
             <span className="absolute top-2 left-0 size-[15px] rounded-full border-4 border-ink bg-lime" />
             <p className="label pt-1.5">{job.period}</p>
-            <div className="tile p-6">
-              <h3 className="font-display text-xl font-bold">
-                {job.role} <span className="font-serif font-normal text-muted italic">en {job.company}</span>
-              </h3>
-              <p className="mt-2 text-muted">{job.description}</p>
-              <ul className="mt-4 space-y-1.5">
-                {job.highlights.map((h) => (
-                  <li key={h} className="flex gap-2 text-sm">
-                    <span className="text-lime">→</span> {h}
-                  </li>
-                ))}
-              </ul>
+            <div className="tile space-y-6 p-6">
+              {job.positions.map((pos) => (
+                <div key={pos.title}>
+                  <h3 className="font-display text-xl font-bold">
+                    {pos.title} <span className="font-serif font-normal text-muted italic">en {job.company}</span>
+                  </h3>
+                  <p className="label mt-1">{pos.period}</p>
+                  <p className="mt-2 text-muted">{pos.description}</p>
+                  <ul className="mt-4 space-y-1.5">
+                    {pos.highlights.map((h) => (
+                      <li key={h} className="flex gap-2 text-sm">
+                        <span className="text-lime">→</span> {h}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </li>
         ))}
