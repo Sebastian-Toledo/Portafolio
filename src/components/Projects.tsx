@@ -3,6 +3,7 @@ import { projects, type Project } from "@/content/profile";
 import { GithubIcon } from "./Hero";
 import SectionTitle from "./SectionTitle";
 import { Highlight } from "./SkillFilter";
+import { BrowserFrame, ProjectMockup } from "./ProjectMockups";
 
 const ACCENT: Record<Project["accent"], { text: string; bg: string; glow: string }> = {
   lime: { text: "text-lime", bg: "bg-lime", glow: "group-hover:shadow-[0_0_80px_-20px_var(--color-lime)]" },
@@ -70,12 +71,12 @@ export default function Projects() {
           </div>
           {featured.image && (
             <div className="relative self-center [perspective:1200px]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={featured.image}
-                alt={`Captura de ${featured.title}`}
-                className="w-full rounded-xl border border-line shadow-2xl transition-transform duration-700 [transform:rotateY(-8deg)_rotateX(4deg)] group-hover:[transform:none]"
-              />
+              <div className="transition-transform duration-700 [transform:rotateX(4deg)] group-hover:[transform:none]">
+                <BrowserFrame url={(featured.url ?? featured.slug).replace(/^https?:\/\//, "")}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={featured.image} alt={`Captura de ${featured.title}`} className="w-full" />
+                </BrowserFrame>
+              </div>
             </div>
           )}
         </article>
@@ -98,6 +99,7 @@ export default function Projects() {
               <p className={`font-serif text-xl italic ${ACCENT[p.accent].text}`}>{p.tagline}</p>
             </div>
             <p className="text-muted">{p.description}</p>
+            <ProjectMockup slug={p.slug} />
             <div className="mt-auto flex flex-col gap-4">
               <Tags tags={p.tags} />
               <Links project={p} />
