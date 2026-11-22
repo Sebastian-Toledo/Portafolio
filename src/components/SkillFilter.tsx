@@ -76,7 +76,7 @@ export function SkillChip({ skill, scroll = false, className = "", children }: {
 export function Highlight({ skills, className = "", children }: { skills: readonly string[]; className?: string; children: React.ReactNode }) {
   const { selected } = useContext(SkillCtx);
   const match = selected !== null && skills.includes(selected);
-  const state = selected === null ? "" : match ? "ring-2 ring-lime shadow-[0_0_60px_-20px_var(--color-lime)]" : "opacity-35";
+  const state = selected === null ? "" : match ? "ring-2 ring-lime shadow-[0_0_60px_-20px_var(--color-lime)]" : "opacity-80";
   return (
     <div data-skill-match={match} className={`transition-all duration-300 ${state} ${className}`}>
       {children}
