@@ -146,6 +146,13 @@
   }
 }
 
+/* Superficie semiopaca para textos que van sobre el código animado del fondo */
+@utility surface {
+  border: 1px solid var(--color-line);
+  background: color-mix(in srgb, var(--color-ink) 82%, transparent);
+  backdrop-filter: blur(12px);
+}
+
 @utility rise {
   animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }

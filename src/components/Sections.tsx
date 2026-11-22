@@ -110,7 +110,7 @@ export function Certifications() {
         ))}
       </div>
       {profile.links.certifications && (
-        <a href={profile.links.certifications} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-muted hover:text-text">
+        <a href={profile.links.certifications} target="_blank" rel="noreferrer" className="surface mt-6 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-muted hover:text-text">
           Ver los certificados en LinkedIn <ArrowUpRight className="size-4" />
         </a>
       )}
@@ -123,7 +123,7 @@ export function About() {
     <section id="sobre-mi" className={wrap}>
       <SectionTitle index="05" title="Sobre mí" />
       <div className="grid gap-8 md:grid-cols-[1.4fr_1fr]">
-        <div className="space-y-5 text-xl leading-relaxed text-muted md:text-2xl">
+        <div className="tile space-y-5 p-7 text-xl leading-relaxed text-muted md:p-10 md:text-2xl">
           {profile.about.map((p) => (
             <p key={p}>{p}</p>
           ))}
@@ -171,7 +171,7 @@ export function Contact() {
           </Link>
         </div>
       </div>
-      <footer className="mt-10 flex flex-wrap justify-between gap-2 text-sm text-muted">
+      <footer className="surface mt-10 flex flex-wrap justify-between gap-2 rounded-2xl px-5 py-3 text-sm text-muted">
         <p>
           © {new Date().getFullYear()}
         </p>
