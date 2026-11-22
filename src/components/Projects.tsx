@@ -48,11 +48,11 @@ export default function Projects() {
   const [featured, ...rest] = [...projects].sort((a, b) => Number(b.featured ?? 0) - Number(a.featured ?? 0));
 
   return (
-    <section id="proyectos" className="mx-auto w-[min(72rem,calc(100%-2rem))] scroll-mt-24 pt-28">
+    <section id="proyectos" className="mx-auto w-[min(44rem,calc(100%-2rem))] scroll-mt-24 pt-28">
       <SectionTitle index="01" title="Proyectos" />
 
       {featured && (
-        <article id={featured.slug} className={`tile group grid scroll-mt-28 gap-8 p-6 transition-shadow duration-500 md:grid-cols-[1fr_1.15fr] md:p-10 ${ACCENT[featured.accent].glow}`}>
+        <article id={featured.slug} className={`tile group grid scroll-mt-28 gap-8 p-6 transition-shadow duration-500 md:p-10 ${ACCENT[featured.accent].glow}`}>
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-3">
               <span className={`size-2 rounded-full ${ACCENT[featured.accent].bg}`} />
@@ -79,7 +79,7 @@ export default function Projects() {
         </article>
       )}
 
-      <div className="mt-4 grid gap-4 md:grid-cols-2">
+      <div className="mt-4 grid gap-4">
         {rest.map((p) => (
           <article key={p.slug} id={p.slug} className={`tile group flex flex-col gap-5 p-6 transition-shadow duration-500 md:p-8 ${ACCENT[p.accent].glow}`}>
             <div className="flex items-center justify-between gap-3">

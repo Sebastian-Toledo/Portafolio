@@ -5,18 +5,18 @@ import { GithubIcon } from "./Hero";
 import SectionTitle from "./SectionTitle";
 import ContactForm from "./ContactForm";
 
-const wrap = "mx-auto w-[min(72rem,calc(100%-2rem))] scroll-mt-24 pt-28";
+const wrap = "mx-auto w-[min(44rem,calc(100%-2rem))] scroll-mt-24 pt-28";
 
 export function Experience() {
   return (
     <section id="experiencia" className={wrap}>
       <SectionTitle index="02" title="Experiencia" />
-      <ol className="relative space-y-4 before:absolute before:top-2 before:bottom-2 before:left-[7px] before:w-px before:bg-line md:before:left-[11.5rem]">
+      <ol className="relative space-y-4 before:absolute before:top-2 before:bottom-2 before:left-[7px] before:w-px before:bg-line">
         {experience.map((job) => (
-          <li key={`${job.company}-${job.period}`} className="relative grid gap-3 pl-8 md:grid-cols-[10rem_1fr] md:gap-12 md:pl-0">
-            <span className="absolute top-2 left-0 size-[15px] rounded-full border-4 border-ink bg-lime md:left-[calc(11.5rem-7px)]" />
+          <li key={`${job.company}-${job.period}`} className="relative grid gap-3 pl-8">
+            <span className="absolute top-2 left-0 size-[15px] rounded-full border-4 border-ink bg-lime" />
             <p className="label pt-1.5">{job.period}</p>
-            <div className="tile p-6 md:ml-8">
+            <div className="tile p-6">
               <h3 className="font-display text-xl font-bold">
                 {job.role} <span className="font-serif font-normal text-muted italic">en {job.company}</span>
               </h3>
@@ -33,7 +33,7 @@ export function Experience() {
         ))}
       </ol>
 
-      <div className="mt-10 grid gap-4 md:grid-cols-2">
+      <div className="mt-10 grid gap-4">
         {education.map((e) => (
           <div key={e.title} className="tile flex items-center justify-between gap-4 p-5">
             <div>
@@ -54,7 +54,7 @@ export function Skills() {
   return (
     <section id="habilidades" className={wrap}>
       <SectionTitle index="03" title="Habilidades" />
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4">
         {skills.map((group, gi) => (
           <div key={group.group} className="tile p-6">
             <p className="label mb-4">{group.group}</p>
@@ -89,13 +89,13 @@ export function Certifications() {
   return (
     <section id="certificaciones" className={wrap}>
       <SectionTitle index="04" title="Certificaciones" />
-      <div className="grid gap-4 lg:grid-cols-3">
-        <div className="tile p-6 lg:col-span-3">
+      <div className="grid gap-4">
+        <div className="tile p-6">
           <div className="mb-2 flex items-center justify-between gap-4">
             <p className="label">{main.group}</p>
             <span className="rounded-full bg-lime/15 px-2.5 py-0.5 font-mono text-xs text-lime">{main.items.length}</span>
           </div>
-          <ul className="gap-x-10 md:columns-2">{list(main.items)}</ul>
+          <ul className="gap-x-10">{list(main.items)}</ul>
         </div>
         {rest.map((g, i) => (
           <div key={g.group} className="tile p-6">
@@ -122,7 +122,7 @@ export function About() {
   return (
     <section id="sobre-mi" className={wrap}>
       <SectionTitle index="05" title="Sobre mí" />
-      <div className="grid gap-8 md:grid-cols-[1.4fr_1fr]">
+      <div className="grid gap-8">
         <div className="tile space-y-5 p-7 text-xl leading-relaxed text-muted md:p-10 md:text-2xl">
           {profile.about.map((p) => (
             <p key={p}>{p}</p>

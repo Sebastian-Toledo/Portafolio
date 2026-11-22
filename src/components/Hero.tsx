@@ -21,9 +21,9 @@ export default function Hero() {
   const stack = skills.flatMap((s) => (s.group === "Idiomas" ? [] : s.items));
 
   return (
-    <section className="mx-auto grid w-[min(72rem,calc(100%-2rem))] gap-4 pt-10 md:grid-cols-6 md:pt-16" aria-label="Presentación">
+    <section className="mx-auto grid w-[min(44rem,calc(100%-2rem))] gap-4 pt-10 md:pt-16" aria-label="Presentación">
       {/* Presentación */}
-      <div className="tile rise flex flex-col justify-between gap-10 p-7 md:col-span-6 md:p-10">
+      <div className="tile rise flex flex-col justify-between gap-10 p-7 md:p-10">
         {current && (
           <p className="label flex items-center gap-2.5">
             <span className="relative flex size-2.5">
@@ -71,7 +71,7 @@ export default function Hero() {
       {featured && (
         <a
           href={`#${featured.slug}`}
-          className="tile group rise flex flex-col justify-between gap-4 p-6 [animation-delay:200ms] md:col-span-3"
+          className="tile group rise flex flex-col justify-between gap-4 p-6 [animation-delay:200ms]"
         >
           <div className="flex items-start justify-between gap-4">
             <div>
@@ -86,14 +86,14 @@ export default function Hero() {
             <img
               src={featured.image}
               alt=""
-              className="-mb-10 rounded-t-xl border border-line object-cover object-top transition-transform duration-500 group-hover:-translate-y-2 md:h-40"
+              className="-mb-10 rounded-t-xl border border-line object-cover object-top transition-transform duration-500 group-hover:-translate-y-2 h-48"
             />
           )}
         </a>
       )}
 
       {/* Stack + GitHub */}
-      <div className="tile rise flex flex-col justify-between gap-6 py-6 [animation-delay:260ms] md:col-span-3">
+      <div className="tile rise flex flex-col justify-between gap-6 py-6 [animation-delay:260ms]">
         <div className="flex items-center justify-between px-6">
           <p className="label">Con qué trabajo</p>
           <a href={profile.links.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-muted hover:text-text">
