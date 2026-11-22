@@ -210,7 +210,7 @@ export const experience: Experience[] = [
         title: "Frontend Developer",
         period: "Jul 2021 — Dic 2021",
         description: "Software de gestión para campings.",
-        highlights: ["Módulo de pre-ingreso con React y Semantic UI"],
+        highlights: ["Creación de la página web para la gestión de campings", "Módulo de pre-ingreso con React y Semantic UI"],
         skills: ["React", "Semantic UI", "JavaScript"],
       },
     ],
