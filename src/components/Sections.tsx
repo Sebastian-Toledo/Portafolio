@@ -45,7 +45,7 @@ export function Experience() {
                       <Highlight skills={pos.skills} className="-m-3 rounded-2xl p-3">
                       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                         <h4 className={`font-display text-xl font-bold ${active ? "" : "text-text/90"}`}>{pos.title}</h4>
-                        <span className="font-mono text-sm text-muted">{pos.period}</span>
+                        {job.positions.length > 1 && <span className="font-mono text-sm text-muted">{pos.period}</span>}
                       </div>
                       <p className="mt-2 text-muted">{pos.description}</p>
                       <ul className="mt-3 space-y-1.5">
