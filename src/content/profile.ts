@@ -198,7 +198,7 @@ export const experience: Experience[] = [
         period: "May 2022 — Sep 2022",
         description: "Empresa de desarrollo de software. Trabajé en una página web y una app para organizar eventos que daban NFTs como recompensa.",
         highlights: ["Módulo de pre-ingreso con React y Semantic UI", "Proyectos con WordPress"],
-        skills: ["React", "Semantic UI", "JavaScript"],
+        skills: ["React", "Semantic UI", "JavaScript", "WordPress"],
       },
     ],
   },
@@ -231,7 +231,7 @@ export const education: Education[] = [
 export const skills = [
   { group: "IA", items: ["Skills para asistentes de IA", "Servidores MCP", "Automatizaciones con IA", "Prompt engineering"] },
   { group: "Lenguajes", items: ["JavaScript", "TypeScript", "Go", "Java"] },
-  { group: "Frontend y mobile", items: ["React", "Next.js", "Tailwind CSS", "Chakra UI", "Semantic UI", "Android"] },
+  { group: "Frontend y mobile", items: ["React", "Next.js", "Tailwind CSS", "Chakra UI", "Semantic UI", "WordPress", "Android"] },
   { group: "Backend y datos", items: ["Node.js", "Express", "MongoDB", "MySQL", "Redis", "Elasticsearch / Kibana", "SQLite / Turso"] },
   { group: "Cloud y herramientas", items: ["AWS", "GCP", "Kubernetes (kubectl)", "Docker", "Git, GitHub y GitLab", "Linux", "Telefonía IP (VoIP/SIP)", "Redes", "Vercel", "Metodologías ágiles"] },
   { group: "Idiomas", items: ["Español (nativo)", "Inglés"] },
