@@ -24,12 +24,13 @@
 
 /* Tema claro: mismas fichas, otros valores. El tema lo fija <html data-theme> (ver layout.tsx). */
 :root[data-theme="light"] {
-  --color-ink: #f6f5f1;
-  --color-panel: #ffffff;
-  --color-panel-2: #efedf3;
-  --color-line: rgb(20 18 26 / 0.12);
-  --color-text: #14121a;
-  --color-muted: #5f5a6e;
+  /* Tonos apagados (piedra/papel) en vez de blanco puro, para que no encandile */
+  --color-ink: #e6e2da;
+  --color-panel: #f0ede6;
+  --color-panel-2: #dfdbd2;
+  --color-line: rgb(20 18 26 / 0.13);
+  --color-text: #1b1922;
+  --color-muted: #55506a;
 
   /* Acentos más oscuros para que se lean sobre fondo claro */
   --color-lime: #4d7c0f;
