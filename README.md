@@ -13,13 +13,13 @@ Para cambiar la captura de un proyecto, poné la imagen en `public/projects/` y 
 
 ## Formulario de contacto
 
-El mail personal **no aparece en ningún lado** del sitio ni del código: los mensajes llegan por un formulario.
+El mail personal **no aparece en ningún lado** del sitio ni del código. Al final de la página hay una cápsula **Escribime un mail** que despliega un formulario, y los mensajes llegan al mail personal a través de [Web3Forms](https://web3forms.com).
 
-1. Creá un formulario gratis en <https://formspree.io> usando tu mail personal como destino.
-2. Copiá la URL que te da (algo como `https://formspree.io/f/abcdwxyz`).
-3. Pegala en `contactForm` dentro de `src/content/profile.ts`.
+1. Entrá a <https://web3forms.com>, poné tu mail personal y pedí la clave (no hace falta contraseña).
+2. Copiá la clave que te llega al correo.
+3. Pegala en `contactKey` dentro de `src/content/profile.ts`.
 
-Es un `<form>` HTML común, sin librerías: actualizar dependencias no lo rompe, y funciona aunque el JavaScript falle. Si algún día querés cambiar de servicio (por ejemplo a Web3Forms), sólo cambiás esa URL.
+Mientras `contactKey` esté vacío, la cápsula no se muestra. Es un `<form>` HTML común, sin librerías: actualizar dependencias no lo rompe, y funciona aunque el JavaScript falle.
 
 ## Imágenes de los certificados
 

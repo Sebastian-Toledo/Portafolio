@@ -25,11 +25,12 @@ export const profile = {
     certifications: "https://www.linkedin.com/in/sebastian-toledo-39b272166/details/certifications/",
   },
   /**
-   * Dirección del formulario de contacto (el mail NO va en el código).
-   * Creá un formulario gratis en https://formspree.io con tu mail personal
-   * y pegá acá la URL que te da, por ejemplo "https://formspree.io/f/abcdwxyz".
+   * Clave de Web3Forms para el formulario de contacto (el mail NO va en el código).
+   * Se saca gratis en https://web3forms.com poniendo el mail personal: la clave llega
+   * a ese correo. Es pública por diseño, así que puede ir acá sin problema.
+   * Mientras esté vacía, la cápsula "Escribime un mail" no aparece.
    */
-  contactForm: "",
+  contactKey: "",
   // Para el CV: texto un poco más largo.
   about: [
     "Soy desarrollador full stack y AI Engineer, y estudio Analista Programador Universitario en la Facultad de Informática de la UNLP. Desde 2021 trabajo en productos web: en mis primeras tres experiencias laborales me dediqué al frontend con React.",
