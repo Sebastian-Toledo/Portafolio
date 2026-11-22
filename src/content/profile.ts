@@ -196,7 +196,7 @@ export const experience: Experience[] = [
       {
         title: "Frontend Developer / Full Stack",
         period: "May 2022 — Sep 2022",
-        description: "Empresa de desarrollo de software. Trabajé en una página web y una app para organizar eventos con NFTs.",
+        description: "Empresa de desarrollo de software. Trabajé en una página web y una app para organizar eventos que daban NFTs como recompensa.",
         highlights: ["Módulo de pre-ingreso con React y Semantic UI", "Proyectos con WordPress"],
         skills: ["React", "Semantic UI", "JavaScript"],
       },
