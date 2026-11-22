@@ -49,7 +49,7 @@ export default function Projects() {
 
   return (
     <section id="proyectos" className="mx-auto w-[min(72rem,calc(100%-2rem))] scroll-mt-24 pt-28">
-      <SectionTitle index="01" title="Proyectos" subtitle="Cosas que construí de punta a punta." />
+      <SectionTitle index="01" title="Proyectos" />
 
       {featured && (
         <article id={featured.slug} className={`tile group grid scroll-mt-28 gap-8 p-6 transition-shadow duration-500 md:grid-cols-[1fr_1.15fr] md:p-10 ${ACCENT[featured.accent].glow}`}>

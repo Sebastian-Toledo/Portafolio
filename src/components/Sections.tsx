@@ -9,7 +9,7 @@ const wrap = "mx-auto w-[min(72rem,calc(100%-2rem))] scroll-mt-24 pt-28";
 export function Experience() {
   return (
     <section id="experiencia" className={wrap}>
-      <SectionTitle index="02" title="Experiencia" subtitle="Dónde trabajé y qué aprendí en el camino." />
+      <SectionTitle index="02" title="Experiencia" />
       <ol className="relative space-y-4 before:absolute before:top-2 before:bottom-2 before:left-[7px] before:w-px before:bg-line md:before:left-[11.5rem]">
         {experience.map((job) => (
           <li key={`${job.company}-${job.period}`} className="relative grid gap-3 pl-8 md:grid-cols-[10rem_1fr] md:gap-12 md:pl-0">
@@ -52,7 +52,7 @@ const CHIP_COLORS = ["hover:border-lime hover:text-lime", "hover:border-violet h
 export function Skills() {
   return (
     <section id="habilidades" className={wrap}>
-      <SectionTitle index="03" title="Habilidades" subtitle="Las herramientas con las que me siento cómodo." />
+      <SectionTitle index="03" title="Habilidades" />
       <div className="grid gap-4 md:grid-cols-2">
         {skills.map((group, gi) => (
           <div key={group.group} className="tile p-6">
@@ -87,7 +87,7 @@ export function Certifications() {
 
   return (
     <section id="certificaciones" className={wrap}>
-      <SectionTitle index="04" title="Certificaciones" subtitle={`${total} cursos y certificados; la mayoría en Platzi.`} />
+      <SectionTitle index="04" title="Certificaciones" />
       <div className="grid gap-4 lg:grid-cols-3">
         <div className="tile p-6 lg:col-span-3">
           <div className="mb-2 flex items-center justify-between gap-4">
