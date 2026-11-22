@@ -207,7 +207,7 @@ export function About() {
         </div>
         <div className="tile flex flex-col justify-between gap-6 bg-[linear-gradient(135deg,color-mix(in_srgb,var(--color-violet)_18%,transparent),color-mix(in_srgb,var(--color-coral)_12%,transparent))] p-7">
           <p className="font-serif text-3xl leading-tight italic">
-            “Mi proyecto favorito es el recetario de mi mamá: un poco de código y mucho cariño.”
+            “Mi proyecto favorito es el recetario de mi mamá: un poco de código, nostalgia y mucho cariño.”
           </p>
           <a href="#con-amor-cristina" className="inline-flex items-center gap-2 font-semibold text-coral hover:underline">
             Conocé “Con amor, mamá” <ArrowUpRight className="size-4" />
