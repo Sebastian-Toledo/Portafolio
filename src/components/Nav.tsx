@@ -5,7 +5,7 @@ import NavMenu from "@/components/NavMenu";
 /** Barra flotante con el menú de secciones y el interruptor Portafolio ↔ CV. */
 export default function Nav({ mode }: { mode: "portfolio" | "cv" }) {
   return (
-    <header className="sticky top-4 z-50 mx-auto flex w-[min(44rem,calc(100%-2rem))] items-center justify-between gap-1.5 rounded-full border border-line bg-ink/70 py-2 pr-2 pl-2 sm:gap-3 sm:pl-3 backdrop-blur-xl print:hidden">
+    <header className="sticky top-4 z-50 mx-auto flex w-[min(60rem,calc(100%-2rem))] items-center justify-between gap-1.5 rounded-full border border-line bg-ink/70 py-2 pr-2 pl-2 sm:gap-3 sm:pl-3 backdrop-blur-xl print:hidden">
       <Link href="/" className="grid h-9 place-items-center rounded-full px-2 font-mono sm:px-3 text-sm font-semibold text-lime transition-colors hover:bg-text/5" aria-label="Inicio">
         &lt;/&gt;
       </Link>

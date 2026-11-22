@@ -21,7 +21,7 @@ export default function Hero() {
   const stack = skills.flatMap((s) => (s.group === "Idiomas" ? [] : s.items));
 
   return (
-    <section className="mx-auto grid w-[min(44rem,calc(100%-2rem))] gap-4 pt-10 md:pt-16" aria-label="Presentación">
+    <section className="mx-auto grid w-[min(60rem,calc(100%-2rem))] gap-4 pt-10 md:pt-16" aria-label="Presentación">
       {/* Presentación */}
       <div className="tile rise flex flex-col justify-between gap-10 p-7 md:p-10">
         {current && (

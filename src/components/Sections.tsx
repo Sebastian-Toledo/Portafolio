@@ -8,7 +8,7 @@ import SectionTitle from "./SectionTitle";
 import ContactForm from "./ContactForm";
 import { Highlight, SkillChip } from "./SkillFilter";
 
-const wrap = "mx-auto w-[min(44rem,calc(100%-2rem))] scroll-mt-24 pt-28";
+const wrap = "mx-auto w-[min(60rem,calc(100%-2rem))] scroll-mt-24 pt-28";
 
 export function Experience() {
   return (

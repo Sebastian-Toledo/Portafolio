@@ -50,7 +50,7 @@ export default function Projects() {
   const [featured, ...rest] = [...projects].sort((a, b) => Number(b.featured ?? 0) - Number(a.featured ?? 0));
 
   return (
-    <section id="proyectos" className="mx-auto w-[min(44rem,calc(100%-2rem))] scroll-mt-24 pt-28">
+    <section id="proyectos" className="mx-auto w-[min(60rem,calc(100%-2rem))] scroll-mt-24 pt-28">
       <SectionTitle index="01" title="Proyectos" />
 
       {featured && (
