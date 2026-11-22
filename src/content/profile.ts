@@ -15,7 +15,7 @@ export const profile = {
     "cocino con código",
   ],
   summary:
-    "Desarrollador full stack de La Plata. Me especializo en encontrar y resolver errores en sistemas en producción, y disfruto construir productos completos: del frontend a la base de datos.",
+    "Desarrollador Full Stack de La Plata. Me especializo en encontrar y resolver errores en sistemas en producción, y disfruto construir productos completos: del frontend a la base de datos.",
   location: "La Plata, Argentina",
   available: true,
   availabilityText: "Abierto a charlar sobre proyectos",
@@ -33,8 +33,8 @@ export const profile = {
   contactKey: "c2bd2df7-47db-457c-a37c-07d69d937ffe",
   // Para el CV: texto un poco más largo.
   about: [
-    "Soy desarrollador full stack y AI Engineer, y estudio Analista Programador Universitario en la Facultad de Informática de la UNLP. Desde 2021 trabajo en productos web: en mis primeras tres experiencias laborales me dediqué al frontend con React.",
-    "Entré a Vozy como pasante y ahí aprendí Go, AWS, GCP, Kubernetes, MongoDB, Elasticsearch y telefonía IP (VoIP/SIP). Después pasé a Software Engineer, desarrollando de punta a punta y resolviendo errores de los productos en producción. Hoy soy AI Engineer y full stack: creo herramientas con IA para el resto de la empresa —skills para asistentes de IA y servidores MCP— y uso la IA en mi trabajo diario para desarrollar, investigar errores y documentar más rápido.",
+    "Soy desarrollador Full Stack y AI Engineer, y estudio Analista Programador Universitario en la Facultad de Informática de la UNLP. Desde 2021 trabajo en productos web: en mis primeras tres experiencias laborales me dediqué al frontend con React.",
+    "Entré a Vozy como pasante y ahí aprendí Go, AWS, GCP, Kubernetes, MongoDB, Elasticsearch y telefonía IP (VoIP/SIP). Después pasé a Software Engineer, desarrollando de punta a punta y resolviendo errores de los productos en producción. Hoy soy AI Engineer y Full Stack: creo herramientas con IA para el resto de la empresa —skills para asistentes de IA y servidores MCP— y uso la IA en mi trabajo diario para desarrollar, investigar errores y documentar más rápido.",
     "En mis ratos libres armo proyectos personales, en los que también programo con asistentes de IA; el más especial es “Con amor, mamá”, el recetario digital con las recetas de mi mamá.",
   ],
 };
@@ -144,7 +144,7 @@ export const experience: Experience[] = [
           "Skills para asistentes de IA que los demás equipos usan en su trabajo diario",
           "Servidores MCP que conectan la IA con las herramientas y los datos de la empresa",
           "Automatizaciones con IA y mejoras de la plataforma impulsadas por IA",
-          "Desarrollo full stack con Go y React",
+          "Desarrollo Full Stack con Go y React",
         ],
         skills: ["Skills para asistentes de IA", "Servidores MCP", "Automatizaciones con IA", "Prompt engineering", "Go", "React", "Git, GitHub y GitLab"],
       },
@@ -226,7 +226,7 @@ export interface Education {
 
 export const education: Education[] = [
   { title: "Analista Programador Universitario", place: "Facultad de Informática, UNLP · último año en curso", period: "2015 — Hoy" },
-  { title: "Desarrollo web full stack", place: "Argentina Programa · React, Node.js, JSP, Servlets y Sockets", period: "Nov 2021 — Feb 2022" },
+  { title: "Desarrollo web Full Stack", place: "Argentina Programa · React, Node.js, JSP, Servlets y Sockets", period: "Nov 2021 — Feb 2022" },
 ];
 
 export const skills = [
