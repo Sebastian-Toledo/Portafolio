@@ -1,6 +1,8 @@
+import fs from "node:fs";
+import path from "node:path";
 import Link from "next/link";
 import { ArrowUpRight, CalendarDays, FileText } from "lucide-react";
-import { certifications, education, experience, formatMonth, profile, projects, skills } from "@/content/profile";
+import { certificateSlug, certifications, education, experience, formatMonth, profile, projects, skills } from "@/content/profile";
 import { GithubIcon } from "./Hero";
 import SectionTitle from "./SectionTitle";
 import ContactForm from "./ContactForm";
@@ -116,19 +118,50 @@ export function Skills() {
   );
 }
 
+const CERT_DIR = "certificados";
+const CERT_EXT = [".png", ".jpg", ".jpeg", ".webp", ".pdf"];
+
+/**
+ * Imágenes de certificados en public/certificados/, por nombre sin extensión.
+ * Se lee al compilar: alcanza con agregar la imagen para que aparezca el link.
+ */
+function certificateFiles() {
+  try {
+    const files = fs.readdirSync(path.join(process.cwd(), "public", CERT_DIR));
+    return new Map(
+      files.filter((f) => CERT_EXT.includes(path.extname(f).toLowerCase())).map((f) => [path.parse(f).name, `/${CERT_DIR}/${f}`]),
+    );
+  } catch {
+    return new Map<string, string>();
+  }
+}
+
 export function Certifications() {
+  const files = certificateFiles();
+  const dev = process.env.NODE_ENV === "development";
   const total = certifications.reduce((n, g) => n + g.items.length, 0);
   const [main, ...rest] = certifications;
   const list = (items: typeof main.items) =>
-    items.map((c) => (
-      <li key={c.title + c.date} className="flex break-inside-avoid items-baseline justify-between gap-4 border-b border-line py-2.5 last:border-0">
-        <div>
-          <p className="font-medium leading-snug">{c.title}</p>
-          {c.issuer !== "Platzi" && <p className="text-sm text-muted">{c.issuer}</p>}
-        </div>
-        {c.date && <span className="shrink-0 font-mono text-xs text-muted">{formatMonth(c.date)}</span>}
-      </li>
-    ));
+    items.map((c) => {
+      const slug = certificateSlug(c.title);
+      const file = files.get(slug);
+      return (
+        <li key={c.title + c.date} className="flex break-inside-avoid items-baseline justify-between gap-4 border-b border-line py-2.5 last:border-0">
+          <div>
+            <p className="font-medium leading-snug">{c.title}</p>
+            {c.issuer !== "Platzi" && <p className="text-sm text-muted">{c.issuer}</p>}
+            {file ? (
+              <a href={file} target="_blank" rel="noreferrer" className="mt-1 inline-flex items-center gap-1 text-sm font-semibold text-lime hover:underline">
+                Ver certificado <ArrowUpRight className="size-3.5" />
+              </a>
+            ) : (
+              dev && <p className="mt-1 font-mono text-[0.7rem] text-coral">falta public/{CERT_DIR}/{slug}.png</p>
+            )}
+          </div>
+          {c.date && <span className="shrink-0 font-mono text-xs text-muted">{formatMonth(c.date)}</span>}
+        </li>
+      );
+    });
 
   return (
     <section id="certificaciones" className={wrap}>

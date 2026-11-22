@@ -287,6 +287,20 @@ export const certifications: { group: string; items: Certification[] }[] = [
   },
 ];
 
+/**
+ * Nombre de archivo (sin extensión) de la imagen de un certificado.
+ * "Unit testing con Go" → "unit-testing-con-go". La imagen va en
+ * public/certificados/ como .png, .jpg, .jpeg, .webp o .pdf.
+ */
+export function certificateSlug(title: string) {
+  return title
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 const MONTHS = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sept", "oct", "nov", "dic"];
 
 /** "2024-05" → "may 2024". */
