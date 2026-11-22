@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, FileText } from "lucide-react";
+import { ArrowUpRight, CalendarDays, FileText } from "lucide-react";
 import { certifications, education, experience, formatMonth, profile, skills } from "@/content/profile";
 import { GithubIcon } from "./Hero";
 import SectionTitle from "./SectionTitle";
@@ -15,14 +15,16 @@ export function Experience() {
         {experience.map((job) => (
           <li key={job.company} className="relative grid gap-3 pl-8">
             <span className="absolute top-2 left-0 size-[15px] rounded-full border-4 border-ink bg-lime" />
-            <p className="label pt-1.5">{job.period}</p>
             <div className="tile space-y-6 p-6">
+              <p className="inline-flex items-center gap-2 rounded-full bg-lime/15 px-3 py-1 font-mono text-sm font-semibold text-lime">
+                <CalendarDays className="size-4" aria-hidden /> {job.period}
+              </p>
               {job.positions.map((pos) => (
                 <div key={pos.title}>
                   <h3 className="font-display text-xl font-bold">
                     {pos.title} <span className="font-serif font-normal text-muted italic">en {job.company}</span>
                   </h3>
-                  <p className="label mt-1">{pos.period}</p>
+                  <p className="mt-2 inline-block rounded-md bg-text/8 px-2 py-0.5 font-mono text-sm text-text">{pos.period}</p>
                   <p className="mt-2 text-muted">{pos.description}</p>
                   <ul className="mt-4 space-y-1.5">
                     {pos.highlights.map((h) => (
