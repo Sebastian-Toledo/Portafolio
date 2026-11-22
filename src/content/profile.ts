@@ -97,6 +97,8 @@ export interface Position {
   period: string;
   description: string;
   highlights: string[];
+  /** Habilidades que usé en este puesto: se resaltan al elegirlas en "Habilidades". */
+  skills: Skill[];
 }
 
 export interface Experience {
@@ -123,6 +125,7 @@ export const experience: Experience[] = [
           "Automatizaciones con IA y mejoras de la plataforma impulsadas por IA",
           "Desarrollo full stack con Go y React",
         ],
+        skills: ["Skills para asistentes de IA", "Servidores MCP", "Automatizaciones con IA", "Prompt engineering", "Go", "React", "Git, GitHub y GitLab"],
       },
       {
         title: "Software Engineer · Full Stack",
@@ -136,6 +139,7 @@ export const experience: Experience[] = [
           "Monitoreo de servicios y lambdas con AWS, GCP y kubectl",
           "Uso diario de MongoDB, MySQL, Redis y GitLab",
         ],
+        skills: ["Go", "React", "MongoDB", "MySQL", "Redis", "Elasticsearch / Kibana", "AWS", "GCP", "Kubernetes (kubectl)", "Telefonía IP (VoIP/SIP)", "Redes", "Git, GitHub y GitLab"],
       },
       {
         title: "Pasante",
@@ -148,6 +152,7 @@ export const experience: Experience[] = [
           "Primeros pasos con AWS, GCP y Kubernetes para revisar servicios",
           "Consultas en MongoDB y en Elasticsearch (Kibana) para investigar errores",
         ],
+        skills: ["Go", "Telefonía IP (VoIP/SIP)", "Redes", "AWS", "GCP", "Kubernetes (kubectl)", "MongoDB", "Elasticsearch / Kibana"],
       },
     ],
   },
@@ -160,6 +165,7 @@ export const experience: Experience[] = [
         period: "Ene 2023 — Jun 2023",
         description: "Desarrollé una app para gestionar los pedidos de una imprenta.",
         highlights: ["Frontend con React, TypeScript y Chakra UI", "Backend con Node.js, TypeScript y Express", "Base de datos en MongoDB"],
+        skills: ["React", "TypeScript", "Chakra UI", "Node.js", "Express", "MongoDB"],
       },
     ],
   },
@@ -172,6 +178,7 @@ export const experience: Experience[] = [
         period: "May 2022 — Sep 2022",
         description: "Empresa de desarrollo de software.",
         highlights: ["Módulo de pre-ingreso con React y Semantic UI", "Proyectos con WordPress"],
+        skills: ["React", "Semantic UI", "JavaScript"],
       },
     ],
   },
@@ -184,6 +191,7 @@ export const experience: Experience[] = [
         period: "Jul 2021 — Dic 2021",
         description: "Software de gestión para campings.",
         highlights: ["Módulo de pre-ingreso con React y Semantic UI"],
+        skills: ["React", "Semantic UI", "JavaScript"],
       },
     ],
   },
@@ -200,13 +208,17 @@ export const education: Education[] = [
   { title: "Desarrollo web full stack", place: "Argentina Programa · React, Node.js, JSP, Servlets y Sockets", period: "Nov 2021 — Feb 2022" },
 ];
 
-export const skills: { group: string; items: string[] }[] = [
+export const skills = [
+  { group: "IA", items: ["Skills para asistentes de IA", "Servidores MCP", "Automatizaciones con IA", "Prompt engineering"] },
   { group: "Lenguajes", items: ["JavaScript", "TypeScript", "Go"] },
   { group: "Frontend", items: ["React", "Next.js", "Tailwind CSS", "Chakra UI", "Semantic UI"] },
   { group: "Backend y datos", items: ["Node.js", "Express", "MongoDB", "MySQL", "Redis", "Elasticsearch / Kibana", "SQLite / Turso"] },
   { group: "Cloud y herramientas", items: ["AWS", "GCP", "Kubernetes (kubectl)", "Docker", "Git, GitHub y GitLab", "Linux", "Telefonía IP (VoIP/SIP)", "Redes", "Vercel", "Metodologías ágiles"] },
   { group: "Idiomas", items: ["Español (nativo)", "Inglés"] },
-];
+] as const satisfies readonly { group: string; items: readonly string[] }[];
+
+/** Cualquier habilidad de la lista de arriba (si escribís mal un nombre, TypeScript avisa). */
+export type Skill = (typeof skills)[number]["items"][number];
 
 export interface Certification {
   title: string;

@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { ArrowUpRight, CalendarDays, FileText } from "lucide-react";
-import { certifications, education, experience, formatMonth, profile, skills } from "@/content/profile";
+import { certifications, education, experience, formatMonth, profile, projects, skills } from "@/content/profile";
 import { GithubIcon } from "./Hero";
 import SectionTitle from "./SectionTitle";
 import ContactForm from "./ContactForm";
+import { Highlight, SkillChip } from "./SkillFilter";
 
 const wrap = "mx-auto w-[min(44rem,calc(100%-2rem))] scroll-mt-24 pt-28";
 
@@ -39,6 +40,7 @@ export function Experience() {
                         aria-hidden
                         className={`absolute top-2 left-0 size-[11px] rounded-full ring-4 ring-panel ${active ? "bg-lime shadow-[0_0_12px_var(--color-lime)]" : "bg-muted"}`}
                       />
+                      <Highlight skills={pos.skills} className="-m-3 rounded-2xl p-3">
                       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                         <h4 className={`font-display text-xl font-bold ${active ? "" : "text-text/90"}`}>{pos.title}</h4>
                         <span className="font-mono text-sm text-muted">{pos.period}</span>
@@ -51,6 +53,14 @@ export function Experience() {
                           </li>
                         ))}
                       </ul>
+                      <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Habilidades usadas">
+                        {pos.skills.map((sk) => (
+                          <li key={sk}>
+                            <SkillChip skill={sk} className="rounded-md border border-line px-2 py-0.5 font-mono text-xs text-muted transition-colors hover:border-lime hover:text-lime" />
+                          </li>
+                        ))}
+                      </ul>
+                      </Highlight>
                     </li>
                   );
                 })}
@@ -78,17 +88,24 @@ export function Experience() {
 const CHIP_COLORS = ["hover:border-lime hover:text-lime", "hover:border-violet hover:text-violet", "hover:border-coral hover:text-coral"];
 
 export function Skills() {
+  // Sólo se pueden elegir las habilidades que aparecen en algún puesto o proyecto.
+  const used = new Set<string>([...experience.flatMap((j) => j.positions.flatMap((p) => p.skills)), ...projects.flatMap((p) => p.tags)]);
   return (
     <section id="habilidades" className={wrap}>
       <SectionTitle index="03" title="Habilidades" />
+      <p className="surface mb-4 rounded-2xl px-5 py-3 text-sm text-muted">Tocá una habilidad para ver en qué trabajos y proyectos la usé.</p>
       <div className="grid gap-4">
         {skills.map((group, gi) => (
           <div key={group.group} className="tile p-6">
             <p className="label mb-4">{group.group}</p>
             <ul className="flex flex-wrap gap-2">
               {group.items.map((item) => (
-                <li key={item} className={`cursor-default rounded-full border border-line px-4 py-2 transition-colors ${CHIP_COLORS[gi % CHIP_COLORS.length]}`}>
-                  {item}
+                <li key={item}>
+                  {used.has(item) ? (
+                    <SkillChip skill={item} scroll className={`rounded-full border border-line px-4 py-2 transition-colors ${CHIP_COLORS[gi % CHIP_COLORS.length]}`} />
+                  ) : (
+                    <span className="inline-block cursor-default rounded-full border border-dashed border-line px-4 py-2 text-muted">{item}</span>
+                  )}
                 </li>
               ))}
             </ul>

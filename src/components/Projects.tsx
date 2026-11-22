@@ -2,6 +2,7 @@ import { ArrowUpRight, Clock } from "lucide-react";
 import { projects, type Project } from "@/content/profile";
 import { GithubIcon } from "./Hero";
 import SectionTitle from "./SectionTitle";
+import { Highlight } from "./SkillFilter";
 
 const ACCENT: Record<Project["accent"], { text: string; bg: string; glow: string }> = {
   lime: { text: "text-lime", bg: "bg-lime", glow: "group-hover:shadow-[0_0_80px_-20px_var(--color-lime)]" },
@@ -52,6 +53,7 @@ export default function Projects() {
       <SectionTitle index="01" title="Proyectos" />
 
       {featured && (
+        <Highlight skills={featured.tags} className="rounded-3xl">
         <article id={featured.slug} className={`tile group grid scroll-mt-28 gap-8 p-6 transition-shadow duration-500 md:p-10 ${ACCENT[featured.accent].glow}`}>
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-3">
@@ -77,11 +79,13 @@ export default function Projects() {
             </div>
           )}
         </article>
+        </Highlight>
       )}
 
       <div className="mt-4 grid gap-4">
         {rest.map((p) => (
-          <article key={p.slug} id={p.slug} className={`tile group flex flex-col gap-5 p-6 transition-shadow duration-500 md:p-8 ${ACCENT[p.accent].glow}`}>
+          <Highlight key={p.slug} skills={p.tags} className="rounded-3xl">
+          <article id={p.slug} className={`tile group flex flex-col gap-5 p-6 transition-shadow duration-500 md:p-8 ${ACCENT[p.accent].glow}`}>
             <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-3">
                 <span className={`size-2 rounded-full ${ACCENT[p.accent].bg}`} />
@@ -99,6 +103,7 @@ export default function Projects() {
               <Links project={p} />
             </div>
           </article>
+          </Highlight>
         ))}
       </div>
     </section>
