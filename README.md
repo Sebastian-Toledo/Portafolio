@@ -11,6 +11,16 @@ Todo el texto está en **[`src/content/profile.ts`](src/content/profile.ts)**: n
 
 Para cambiar la captura de un proyecto, poné la imagen en `public/projects/` y referenciala en el campo `image`.
 
+## Formulario de contacto
+
+El mail personal **no aparece en ningún lado** del sitio ni del código: los mensajes llegan por un formulario.
+
+1. Creá un formulario gratis en <https://formspree.io> usando tu mail personal como destino.
+2. Copiá la URL que te da (algo como `https://formspree.io/f/abcdwxyz`).
+3. Pegala en `contactForm` dentro de `src/content/profile.ts`.
+
+Es un `<form>` HTML común, sin librerías: actualizar dependencias no lo rompe, y funciona aunque el JavaScript falle. Si algún día querés cambiar de servicio (por ejemplo a Web3Forms), sólo cambiás esa URL.
+
 ## Levantarlo en local
 
 ```bash

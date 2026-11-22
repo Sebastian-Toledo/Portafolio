@@ -24,8 +24,13 @@ export const profile = {
     github: "https://github.com/Sebastian-Toledo",
     linkedin: "https://www.linkedin.com/in/sebastian-toledo-39b272166/",
     certifications: "https://www.linkedin.com/in/sebastian-toledo-39b272166/details/certifications/",
-    email: "seba95matias@gmail.com",
   },
+  /**
+   * Dirección del formulario de contacto (el mail NO va en el código).
+   * Creá un formulario gratis en https://formspree.io con tu mail personal
+   * y pegá acá la URL que te da, por ejemplo "https://formspree.io/f/abcdwxyz".
+   */
+  contactForm: "",
   // Para el CV: texto un poco más largo.
   about: [
     "Soy desarrollador full stack y AI Engineer, y estudio Analista Programador Universitario en la Facultad de Informática de la UNLP. Desde 2021 trabajo de forma remota en productos web: en mis primeras tres experiencias laborales me dediqué al frontend con React.",

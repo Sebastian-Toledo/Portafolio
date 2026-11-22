@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowDownRight, ArrowUpRight, Cloud, Database, FileText, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Cloud, Database, FileText, MapPin, Phone } from "lucide-react";
 import { experience, profile, projects, skills } from "@/content/profile";
 import RotatingText from "./RotatingText";
 
@@ -78,11 +78,6 @@ export default function Hero() {
         )}
 
         <div className="flex flex-wrap justify-center gap-2">
-          {profile.links.email && (
-            <a href={`mailto:${profile.links.email}`} className={chip}>
-              <Mail className="size-4" /> Email
-            </a>
-          )}
           <a href={profile.links.github} target="_blank" rel="noreferrer" className={chip}>
             <GithubIcon className="size-4" /> GitHub
           </a>

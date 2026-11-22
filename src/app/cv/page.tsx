@@ -23,7 +23,7 @@ const clean = (url: string) => url.replace(/^https?:\/\//, "").replace(/\/$/, ""
 
 export default function CvPage() {
   const realProjects = projects.filter((p) => !p.example);
-  const { github, linkedin, email } = profile.links;
+  const { github, linkedin } = profile.links;
 
   return (
     <div className="grain relative isolate min-h-screen pb-20 print:min-h-0 print:pb-0 print:after:hidden">
@@ -46,7 +46,6 @@ export default function CvPage() {
           </div>
           <ul className="space-y-1 text-right text-sm text-zinc-600 print:space-y-0 print:text-[8.5pt]">
             <li>{profile.location}</li>
-            {email && <li>{email}</li>}
             <li>{clean(github)}</li>
             {linkedin && <li>{clean(linkedin)}</li>}
           </ul>

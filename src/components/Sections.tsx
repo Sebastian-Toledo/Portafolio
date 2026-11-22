@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { ArrowUpRight, FileText, Mail } from "lucide-react";
+import { ArrowUpRight, FileText } from "lucide-react";
 import { certifications, education, experience, formatMonth, profile, skills } from "@/content/profile";
 import { GithubIcon } from "./Hero";
 import SectionTitle from "./SectionTitle";
+import ContactForm from "./ContactForm";
 
 const wrap = "mx-auto w-[min(72rem,calc(100%-2rem))] scroll-mt-24 pt-28";
 
@@ -141,7 +142,7 @@ export function About() {
 }
 
 export function Contact() {
-  const { github, linkedin, email } = profile.links;
+  const { github, linkedin } = profile.links;
   return (
     <section id="contacto" className={`${wrap} pb-16`}>
       <div className="tile relative overflow-hidden p-8 text-center md:p-16">
@@ -153,12 +154,10 @@ export function Contact() {
         <p className="relative mx-auto mt-4 max-w-lg text-lg text-muted">
           Si tenés una idea, un proyecto o una propuesta, escribime. Respondo rápido.
         </p>
+        <div className="relative mt-8">
+          <ContactForm />
+        </div>
         <div className="relative mt-8 flex flex-wrap justify-center gap-3">
-          {email && (
-            <a href={`mailto:${email}`} className="inline-flex items-center gap-2 rounded-full bg-lime px-6 py-3 font-semibold text-ink hover:-translate-y-0.5">
-              <Mail className="size-4" /> {email}
-            </a>
-          )}
           <a href={github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-line bg-ink/60 px-6 py-3 font-semibold hover:bg-text/5">
             <GithubIcon className="size-4" /> GitHub
           </a>
