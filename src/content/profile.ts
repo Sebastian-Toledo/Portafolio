@@ -6,7 +6,7 @@
 export const profile = {
   name: "Sebastian Matias Toledo",
   initials: "ST",
-  role: "AI Engineer",
+  role: "AI Engineer & Full Stack Developer",
   // Frases que van rotando en la portada ("Hola, soy Sebastian y …").
   rotating: [
     "construyo apps de punta a punta",
@@ -98,7 +98,7 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
-    role: "AI Engineer (antes Software Engineer · Full Stack)",
+    role: "AI Engineer & Full Stack Developer",
     company: "Vozy",
     period: "Sep 2023 — Hoy",
     description:
