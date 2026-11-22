@@ -2,15 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { SECTIONS as LINKS } from "@/content/sections";
 
-const LINKS = [
-  { href: "/#proyectos", label: "Proyectos", index: "01" },
-  { href: "/#experiencia", label: "Experiencia", index: "02" },
-  { href: "/#habilidades", label: "Habilidades", index: "03" },
-  { href: "/#certificaciones", label: "Certificaciones", index: "04" },
-  { href: "/#sobre-mi", label: "Sobre mí", index: "05" },
-  { href: "/#contacto", label: "Contacto", index: "06" },
-];
 
 /** Botón "Secciones" que despliega un menú para saltar a cada parte del portafolio. */
 export default function NavMenu() {
