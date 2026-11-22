@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { profile } from "@/content/profile";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const LINKS = [
@@ -14,8 +13,8 @@ const LINKS = [
 export default function Nav({ mode }: { mode: "portfolio" | "cv" }) {
   return (
     <header className="sticky top-4 z-50 mx-auto flex w-[min(64rem,calc(100%-2rem))] items-center justify-between gap-3 rounded-full border border-line bg-ink/70 py-2 pr-2 pl-3 backdrop-blur-xl print:hidden">
-      <Link href="/" className="grid size-9 place-items-center rounded-full bg-lime font-display text-sm font-extrabold text-ink" aria-label="Inicio">
-        {profile.initials}
+      <Link href="/" className="grid h-9 place-items-center rounded-full px-3 font-mono text-sm font-semibold text-lime transition-colors hover:bg-text/5" aria-label="Inicio">
+        &lt;/&gt;
       </Link>
 
       <nav className="hidden items-center gap-1 text-sm md:flex" aria-label="Secciones">

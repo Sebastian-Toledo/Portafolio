@@ -5,7 +5,6 @@
 
 export const profile = {
   name: "Sebastian Matias Toledo",
-  initials: "ST",
   role: "AI Engineer & Full Stack Developer",
   // Frases que van rotando en la portada ("Hola, soy Sebastian y …").
   rotating: [
