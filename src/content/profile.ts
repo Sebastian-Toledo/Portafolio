@@ -30,7 +30,7 @@ export const profile = {
    * a ese correo. Es pública por diseño, así que puede ir acá sin problema.
    * Mientras esté vacía, la cápsula "Escribime un mail" no aparece.
    */
-  contactKey: "",
+  contactKey: "c2bd2df7-47db-457c-a37c-07d69d937ffe",
   // Para el CV: texto un poco más largo.
   about: [
     "Soy desarrollador full stack y AI Engineer, y estudio Analista Programador Universitario en la Facultad de Informática de la UNLP. Desde 2021 trabajo en productos web: en mis primeras tres experiencias laborales me dediqué al frontend con React.",
