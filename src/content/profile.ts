@@ -53,6 +53,10 @@ export interface Project {
   /** Color de acento de la tarjeta. */
   accent: "lime" | "violet" | "coral";
   example?: boolean;
+  /** Capturas de una app de celular: se muestran como teléfonos lado a lado. */
+  screens?: { src: string; alt: string }[];
+  /** Archivo para descargar (por ejemplo, el instalador de una app Android). */
+  download?: { href: string; label: string };
 }
 
 export const projects: Project[] = [
@@ -69,6 +73,22 @@ export const projects: Project[] = [
     year: "2022 — Hoy",
     featured: true,
     accent: "coral",
+  },
+  {
+    slug: "intervalos",
+    title: "Intervalos",
+    tagline: "Timer de entrenamiento por intervalos para Android",
+    description:
+      "Una app para entrenar por intervalos: Tabata, HIIT, boxeo o circuitos. Armás tus timers con preparación, rondas, ciclos y enfriamiento; durante el entrenamiento la pantalla cambia de color según la fase y una guía por voz anuncia las rondas y la cuenta regresiva. Sigue contando y sonando con la pantalla apagada y guarda el historial. La interfaz está hecha con HTML, CSS y JavaScript dentro de un WebView, y la parte nativa en Java (servicio en segundo plano, notificaciones, voz y sonidos), sin librerías externas.",
+    tags: ["Android", "Java", "JavaScript", "WebView", "Text-to-Speech"],
+    screens: [
+      { src: "/projects/intervalos-home.png", alt: "Lista de timers guardados" },
+      { src: "/projects/intervalos-run.png", alt: "Entrenamiento en curso: fase de trabajo, ronda 1 de 10" },
+      { src: "/projects/intervalos-edit.png", alt: "Editor de un timer con preparación, trabajo, descanso y rondas" },
+    ],
+    download: { href: "/descargas/Intervalos-1.1.apk", label: "Descargar APK" },
+    year: "2026",
+    accent: "violet",
   },
   {
     slug: "juegos-nodejs",
@@ -210,8 +230,8 @@ export const education: Education[] = [
 
 export const skills = [
   { group: "IA", items: ["Skills para asistentes de IA", "Servidores MCP", "Automatizaciones con IA", "Prompt engineering"] },
-  { group: "Lenguajes", items: ["JavaScript", "TypeScript", "Go"] },
-  { group: "Frontend", items: ["React", "Next.js", "Tailwind CSS", "Chakra UI", "Semantic UI"] },
+  { group: "Lenguajes", items: ["JavaScript", "TypeScript", "Go", "Java"] },
+  { group: "Frontend y mobile", items: ["React", "Next.js", "Tailwind CSS", "Chakra UI", "Semantic UI", "Android"] },
   { group: "Backend y datos", items: ["Node.js", "Express", "MongoDB", "MySQL", "Redis", "Elasticsearch / Kibana", "SQLite / Turso"] },
   { group: "Cloud y herramientas", items: ["AWS", "GCP", "Kubernetes (kubectl)", "Docker", "Git, GitHub y GitLab", "Linux", "Telefonía IP (VoIP/SIP)", "Redes", "Vercel", "Metodologías ágiles"] },
   { group: "Idiomas", items: ["Español (nativo)", "Inglés"] },

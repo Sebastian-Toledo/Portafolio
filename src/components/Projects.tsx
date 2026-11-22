@@ -1,9 +1,9 @@
-import { ArrowUpRight, Clock } from "lucide-react";
+import { ArrowUpRight, Clock, Download } from "lucide-react";
 import { projects, type Project } from "@/content/profile";
 import { GithubIcon } from "./Hero";
 import SectionTitle from "./SectionTitle";
 import { Highlight } from "./SkillFilter";
-import { BrowserFrame, ProjectMockup } from "./ProjectMockups";
+import { BrowserFrame, PhoneScreens, ProjectMockup } from "./ProjectMockups";
 
 const ACCENT: Record<Project["accent"], { text: string; bg: string; glow: string }> = {
   lime: { text: "text-lime", bg: "bg-lime", glow: "group-hover:shadow-[0_0_80px_-20px_var(--color-lime)]" },
@@ -14,12 +14,17 @@ const ACCENT: Record<Project["accent"], { text: string; bg: string; glow: string
 function Links({ project }: { project: Project }) {
   return (
     <div className="flex flex-wrap gap-2">
+      {project.download && (
+        <a href={project.download.href} download className="inline-flex items-center gap-2 rounded-full bg-text px-4 py-2 text-sm font-semibold text-ink hover:bg-lime">
+          <Download className="size-4" /> {project.download.label}
+        </a>
+      )}
       {project.url ? (
         <a href={project.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-text px-4 py-2 text-sm font-semibold text-ink hover:bg-lime">
           Ver la app <ArrowUpRight className="size-4" />
         </a>
       ) : (
-        !project.example && (
+        !project.example && !project.download && (
           <span className="inline-flex items-center gap-2 rounded-full border border-dashed border-line px-4 py-2 text-sm text-muted">
             <Clock className="size-4" /> Pronto online
           </span>
@@ -99,7 +104,7 @@ export default function Projects() {
               <p className={`font-serif text-xl italic ${ACCENT[p.accent].text}`}>{p.tagline}</p>
             </div>
             <p className="text-muted">{p.description}</p>
-            <ProjectMockup slug={p.slug} />
+            {p.screens ? <PhoneScreens screens={p.screens} /> : <ProjectMockup slug={p.slug} />}
             <div className="mt-auto flex flex-col gap-4">
               <Tags tags={p.tags} />
               <Links project={p} />

@@ -21,6 +21,20 @@ export function BrowserFrame({ url, children, mock = false }: { url: string; chi
   );
 }
 
+/** Capturas de una app de celular, como teléfonos lado a lado. */
+export function PhoneScreens({ screens }: { screens: { src: string; alt: string }[] }) {
+  return (
+    <div className="grid grid-cols-3 gap-3 rounded-2xl bg-panel-2 p-4 sm:gap-6 sm:p-8">
+      {screens.map((s) => (
+        <figure key={s.src} className="overflow-hidden rounded-[1.4rem] border-4 border-text/15 bg-ink shadow-xl sm:rounded-[2rem] sm:border-[6px]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={s.src} alt={s.alt} loading="lazy" className="w-full" />
+        </figure>
+      ))}
+    </div>
+  );
+}
+
 const ORDERS = [
   { id: "#1048", client: "Librería Sur", item: "Tarjetas personales × 500", status: "En imprenta", tone: "bg-violet/20 text-violet" },
   { id: "#1047", client: "Café Ocho", item: "Menús plastificados × 40", status: "Listo", tone: "bg-lime/20 text-lime" },
