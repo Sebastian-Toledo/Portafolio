@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowDownRight, ArrowUpRight, FileText } from "lucide-react";
-import { profile, projects, skills } from "@/content/profile";
+import { experience, profile, projects, skills } from "@/content/profile";
 import RotatingText from "./RotatingText";
 
 function GithubIcon({ className }: { className?: string }) {
@@ -16,23 +16,37 @@ const chip = "inline-flex items-center gap-2 rounded-full border border-line px-
 
 export default function Hero() {
   const featured = projects.find((p) => p.featured);
-  const firstName = profile.name.split(" ")[0];
-  const lastName = profile.name.split(" ").slice(1).join(" ");
+  const current = experience[0];
+  const [roleMain, roleRest] = profile.role.split(" & ");
   const stack = skills.flatMap((s) => (s.group === "Idiomas" ? [] : s.items));
 
   return (
     <section className="mx-auto grid w-[min(72rem,calc(100%-2rem))] gap-4 pt-10 md:grid-cols-6 md:pt-16" aria-label="Presentación">
       {/* Presentación */}
       <div className="tile rise flex flex-col justify-between gap-10 p-7 md:col-span-6 md:p-10">
-        <p className="label">Portafolio · {new Date().getFullYear()}</p>
+        {current && (
+          <p className="label flex items-center gap-2.5">
+            <span className="relative flex size-2.5">
+              <span className="absolute inline-flex size-full animate-pulse-ring rounded-full bg-lime" />
+              <span className="relative inline-flex size-2.5 rounded-full bg-lime" />
+            </span>
+            Hoy en {current.company}
+          </p>
+        )}
         <div>
-          <h1 className="font-display text-[clamp(3rem,9vw,7.5rem)] leading-[0.88] font-extrabold tracking-tight">
-            {firstName}
-            <br />
-            <span className="font-serif font-normal text-lime italic">{lastName}</span>
+          {/* Lo primero que se lee es el puesto; el nombre va debajo y aparece una sola vez en la página. */}
+          <h1 className="font-display text-[clamp(2.75rem,8vw,6.5rem)] leading-[0.9] font-extrabold tracking-tight">
+            {roleMain}
+            {roleRest && (
+              <>
+                <br />
+                <span className="font-serif font-normal text-lime italic">&amp; {roleRest}</span>
+              </>
+            )}
           </h1>
-          <p className="mt-6 max-w-xl text-xl text-muted md:text-2xl">
-            {profile.role}. Hola, soy {firstName} y <span className="text-text"><RotatingText words={profile.rotating} /></span>
+          <p className="mt-6 font-display text-2xl font-bold md:text-3xl">{profile.name}</p>
+          <p className="mt-2 max-w-xl text-xl text-muted md:text-2xl">
+            Desde {profile.location.split(",")[0]}, <span className="text-text"><RotatingText words={profile.rotating} /></span>
           </p>
         </div>
         <div className="flex flex-wrap gap-3">

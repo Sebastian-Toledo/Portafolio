@@ -173,7 +173,7 @@ export function Contact() {
       </div>
       <footer className="mt-10 flex flex-wrap justify-between gap-2 text-sm text-muted">
         <p>
-          © {new Date().getFullYear()} {profile.name}
+          © {new Date().getFullYear()}
         </p>
         <p>Hecho con Next.js, Tailwind y muchas ganas.</p>
       </footer>
