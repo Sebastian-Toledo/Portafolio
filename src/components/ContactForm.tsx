@@ -64,7 +64,7 @@ export default function ContactForm() {
   if (status === "sent") {
     return (
       <p className="mx-auto max-w-lg rounded-2xl border border-lime/40 bg-lime/10 p-6 text-lg font-semibold" role="status">
-        ¡Gracias! Recibí tu mensaje y te respondo pronto.
+        ¡Gracias! Recibí tu mensaje y te respondo a la brevedad.
       </p>
     );
   }
