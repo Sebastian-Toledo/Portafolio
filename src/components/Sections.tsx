@@ -144,7 +144,7 @@ export function Certifications() {
   const list = (items: typeof main.items) =>
     items.map((c) => {
       const slug = certificateSlug(c.title);
-      const file = files.get(slug);
+      const file = files.get(slug) ?? c.url;
       return (
         <li key={c.title + c.date} className="flex break-inside-avoid items-baseline justify-between gap-4 border-b border-line py-2.5 last:border-0">
           <div>

@@ -246,6 +246,8 @@ export interface Certification {
   issuer: string;
   /** "AAAA-MM"; vacío si no tiene fecha. */
   date: string;
+  /** Link público para verificar el certificado, si no hay archivo en public/certificados. */
+  url?: string;
 }
 
 // Copiadas de LinkedIn (Licencias y certificaciones). Dentro de cada grupo van de la más nueva a la más vieja.
@@ -277,10 +279,10 @@ export const certifications: { group: string; items: Certification[] }[] = [
     group: "Ciberseguridad",
     items: [
       { title: "Introducción al desarrollo seguro", issuer: "Backtrack Academy", date: "2025-09" },
-      { title: "Protegé tu negocio: ciberseguridad en el teletrabajo", issuer: "Fundación Santa María la Real", date: "2025-09" },
-      { title: "Ciberseguridad y privacidad para empresas", issuer: "Platzi", date: "2025-03" },
-      { title: "Curso de ciberseguridad y privacidad para empresas", issuer: "Platzi", date: "2024-09" },
-      { title: "Ciberseguridad para desarrollo web", issuer: "Platzi", date: "2024-05" },
+      { title: "Protegé tu negocio: ciberseguridad en el teletrabajo", issuer: "Fundación Santa María la Real", date: "2025-09", url: "https://skillshop.exceedlms.com/student/award/G1f9J3D7PqfNWRbJvtixukR2" },
+      { title: "Ciberseguridad y privacidad para empresas", issuer: "Platzi", date: "2025-03", url: "https://platzi.com/p/stoledo9745/curso/10928-course/diploma/detalle/" },
+      { title: "Curso de ciberseguridad y privacidad para empresas", issuer: "Platzi", date: "2024-09", url: "https://platzi.com/p/stoledo9745/curso/8044-course/diploma/detalle/" },
+      { title: "Ciberseguridad para desarrollo web", issuer: "Platzi", date: "2024-05", url: "https://platzi.com/p/stoledo9745/curso/9443-course/diploma/detalle/" },
       { title: "Taller de ciberseguridad", issuer: "Platzi", date: "2024-05" },
       { title: "Ciberseguridad para empresas", issuer: "Platzi", date: "2023-09" },
     ],
@@ -288,8 +290,8 @@ export const certifications: { group: string; items: Certification[] }[] = [
   {
     group: "Desarrollo",
     items: [
-      { title: "Go intermedio: programación orientada a objetos y concurrencia", issuer: "Platzi", date: "2024-06" },
-      { title: "Unit testing con Go", issuer: "Platzi", date: "2024-05" },
+      { title: "Go intermedio: programación orientada a objetos y concurrencia", issuer: "Platzi", date: "2024-06", url: "https://platzi.com/p/stoledo9745/curso/2357-course/diploma/detalle/" },
+      { title: "Unit testing con Go", issuer: "Platzi", date: "2024-05", url: "https://platzi.com/p/stoledo9745/curso/3337-course/diploma/detalle/" },
       { title: "Git y GitHub", issuer: "Platzi", date: "2024-01" },
       { title: "Programación en Go", issuer: "Platzi", date: "2023-12" },
       { title: "Fundamentos de ingeniería de software", issuer: "Platzi", date: "2023-09" },
