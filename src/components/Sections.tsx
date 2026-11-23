@@ -248,10 +248,7 @@ export function Contact() {
           </Link>
         </div>
       </div>
-      <footer className="surface mt-10 flex flex-wrap justify-between gap-2 rounded-2xl px-5 py-3 text-sm text-muted">
-        <p>
-          © {new Date().getFullYear()}
-        </p>
+      <footer className="surface mt-10 rounded-2xl px-5 py-3 text-center text-sm text-muted">
         <p>Hecho con Next.js, Tailwind y muchas ganas.</p>
       </footer>
     </section>
