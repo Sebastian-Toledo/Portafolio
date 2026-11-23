@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowDownRight, ArrowUpRight, FileText } from "lucide-react";
-import { experience, profile, projects, skills } from "@/content/profile";
+import { experience, profile, skills } from "@/content/profile";
 import RotatingText from "./RotatingText";
 
 function GithubIcon({ className }: { className?: string }) {
@@ -15,7 +15,6 @@ export { GithubIcon };
 const chip = "inline-flex items-center gap-2 rounded-full border border-line px-5 py-3 font-semibold transition-colors hover:bg-text/5";
 
 export default function Hero() {
-  const featured = projects.find((p) => p.featured);
   const current = experience[0];
   const [roleMain, roleRest] = profile.role.split(" & ");
   const stack = skills.flatMap((s) => (s.group === "Idiomas" ? [] : s.items));
@@ -66,31 +65,6 @@ export default function Hero() {
           )}
         </div>
       </div>
-
-      {/* Proyecto destacado */}
-      {featured && (
-        <a
-          href={`#${featured.slug}`}
-          className="tile group rise flex flex-col justify-between gap-4 p-6 [animation-delay:200ms]"
-        >
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <p className="label">Proyecto destacado</p>
-              <p className="mt-2 font-display text-2xl font-bold">{featured.title}</p>
-              <p className="text-muted">{featured.tagline}</p>
-            </div>
-            <ArrowUpRight className="size-6 shrink-0 text-coral transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-          </div>
-          {featured.image && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={featured.image}
-              alt=""
-              className="-mb-10 rounded-t-xl border border-line object-cover object-top transition-transform duration-500 group-hover:-translate-y-2 h-48"
-            />
-          )}
-        </a>
-      )}
 
       {/* Stack + GitHub */}
       <div className="tile rise flex flex-col justify-between gap-6 py-6 [animation-delay:260ms]">
