@@ -137,7 +137,7 @@ export const experience: Experience[] = [
     positions: [
       {
         title: "AI Engineer & Full Stack Developer",
-        period: "XXX 20XX — Hoy", // TODO: completar el mes en que empezó este rol
+        period: "Jun 2025 — Hoy",
         description:
           "Creo herramientas con IA para que las use el resto de la empresa, y sigo desarrollando de punta a punta en la plataforma.",
         highlights: [
@@ -150,7 +150,7 @@ export const experience: Experience[] = [
       },
       {
         title: "Software Engineer · Full Stack",
-        period: "XXX 20XX — XXX 20XX", // TODO: completar
+        period: "Mar 2024 — May 2025",
         description:
           "Desarrollé funcionalidades de punta a punta y me ocupé de investigar y resolver los errores de los productos en producción.",
         highlights: [
@@ -164,7 +164,7 @@ export const experience: Experience[] = [
       },
       {
         title: "Pasante",
-        period: "Sep 2023 — XXX 20XX", // TODO: completar
+        period: "Sep 2023 — Feb 2024",
         description:
           "Entré en el área de soporte y debugging. Fue mi primer contacto con una plataforma de voz en producción y aprendí cómo funciona por dentro.",
         highlights: [
